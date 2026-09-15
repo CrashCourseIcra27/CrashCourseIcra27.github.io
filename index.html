@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CrashCourse: Learning Emergency Maneuvers from Privileged Driving Teachers</title>
+<meta name="description" content="Project page for CrashCourse: Learning Emergency Maneuvers from Privileged Driving Teachers.">
+<meta property="og:title" content="CrashCourse: Learning Emergency Maneuvers from Privileged Driving Teachers">
+<meta property="og:description" content="Project page: benchmark scenarios, implementation details, and the evidence registry.">
+<meta property="og:image" content="static/images/figures_teaser.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128680;</text></svg>">
+<style>
+:root{
+  --bg:#ffffff; --fg:#1a1c1f; --muted:#5c6470; --line:#e3e6ea; --soft:#f6f7f9;
+  --accent:#1f5fd0; --accent-soft:#e8f0fd; --best:#dff3e3; --second:#eef3fb;
+  --gain:#dff3e3; --drop:#fbe4e4; --maxw:860px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#14161a; --fg:#e7e9ec; --muted:#9aa3ae; --line:#2b3038; --soft:#1b1e24;
+         --accent:#7ba7f0; --accent-soft:#1e2836; --best:#1e3326; --second:#1d2735;
+         --gain:#1e3326; --drop:#3a2323; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:1.2rem}
+body{margin:0;background:var(--bg);color:var(--fg);
+     font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+     -webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+/* ---------- hero ---------- */
+header.hero{padding:56px 0 28px;border-bottom:1px solid var(--line);background:var(--soft)}
+.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:var(--muted);
+        font-weight:600;margin-bottom:14px}
+h1.title{font-size:2.05rem;line-height:1.22;margin:0 0 18px;font-weight:700;letter-spacing:-.015em}
+.authors{color:var(--muted);font-size:.95rem;margin-bottom:6px}
+.venue{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+.buttons{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:999px;
+     background:var(--fg);color:var(--bg);font-size:.88rem;font-weight:500}
+.btn:hover{opacity:.85;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.btn.dim{opacity:.45;pointer-events:none}
+
+/* ---------- generic sections ---------- */
+section{padding:34px 0}
+section+section{border-top:1px solid var(--line)}
+h2,h3,h4{line-height:1.3;font-weight:650;letter-spacing:-.01em}
+h2{font-size:1.4rem;margin:6px 0 14px}
+h3{font-size:1.12rem;margin:30px 0 10px}
+h4{font-size:1rem;margin:22px 0 8px}
+h2 .num,h3 .num,h4 .num{color:var(--muted);font-weight:500;margin-right:.6em;font-variant-numeric:tabular-nums}
+p{margin:0 0 14px}
+.lead{font-size:1.02rem}
+strong.bp{font-weight:650}
+.sc{font-variant:small-caps}
+.note{color:#b04a4a}
+.status{border:1px solid #e2c391;background:#fdf6e8;border-radius:10px;padding:14px 16px;
+        font-size:.94rem}
+@media (prefers-color-scheme: dark){.status{background:#2a2317;border-color:#5c4a2a}}
+.pend{color:#b04a4a;font-weight:700}
+table td .pend,table th .pend{font-weight:700}
+
+.teaser{margin:26px 0 0}
+.teaser img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:#fff}
+.teaser figcaption{color:var(--muted);font-size:.85rem;margin-top:10px}
+
+/* ---------- toc ---------- */
+ul.toc{list-style:none;margin:0;padding:0;columns:2;column-gap:34px}
+@media (max-width:640px){ul.toc{columns:1}}
+ul.toc li{break-inside:avoid;margin:0 0 5px;font-size:.92rem}
+ul.toc li.d0{margin-top:10px;font-weight:600}
+ul.toc li.d1{padding-left:16px}
+ul.toc li.d2{padding-left:32px;font-size:.88rem}
+ul.toc .num{color:var(--muted);display:inline-block;min-width:3.1em;font-variant-numeric:tabular-nums}
+ul.toc a{color:var(--fg)}
+
+/* ---------- floats ---------- */
+figure{margin:26px 0}
+figure .caption,figcaption{color:var(--muted);font-size:.86rem;line-height:1.55;margin-top:10px}
+figure.tbl .caption{margin:0 0 10px}
+figure img{max-width:100%;height:auto;display:block;border-radius:6px}
+figure img.single{width:100%;border:1px solid var(--line);background:#fff;padding:6px}
+.figgrid{display:grid;gap:8px}
+.figgrid.cols3{grid-template-columns:repeat(3,1fr)}
+.figgrid.cols2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:600px){.figgrid.cols3,.figgrid.cols2{grid-template-columns:1fr 1fr}}
+.subfig img{width:100%;border:1px solid var(--line)}
+.subcap{color:var(--muted);font-size:.78rem;text-align:center;margin-top:4px}
+.missing{padding:10px;border:1px dashed var(--line);color:var(--muted);font-size:.85rem}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);
+           border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:.87rem;font-variant-numeric:tabular-nums}
+th,td{padding:7px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th{background:var(--soft);font-weight:650;border-bottom:2px solid var(--line)}
+tbody tr:last-child td{border-bottom:none}
+td.left,th.left{text-align:left}
+td.center,th.center{text-align:center}
+td.right,th.right{text-align:right}
+td.best{background:var(--best);font-weight:650}
+td.second{background:var(--second)}
+td.hl{background:var(--accent-soft)}
+.gain{background:var(--gain);border-radius:4px;padding:0 4px;font-size:.8em}
+.drop{background:var(--drop);border-radius:4px;padding:0 4px;font-size:.8em}
+.yes{color:#2a8a4a;font-weight:700}
+.no{color:#c05252;font-weight:700}
+
+/* ---------- equations / algorithms ---------- */
+.eqn{overflow-x:auto;overflow-y:hidden;margin:16px 0;padding:2px 0}
+figure.algo{border:1px solid var(--line);border-radius:8px;padding:14px 16px;background:var(--soft)}
+figure.algo .caption{margin:0 0 10px;color:var(--fg);font-size:.9rem;
+                     border-bottom:1px solid var(--line);padding-bottom:8px}
+.algobody{font-size:.85rem;overflow-x:auto}
+.algline{padding-top:2px;white-space:nowrap}
+.algline .ln{display:inline-block;width:2.1em;color:var(--muted);
+             font-variant-numeric:tabular-nums;font-size:.8em}
+.cmt{color:var(--muted)}
+
+/* ---------- refs / cites ---------- */
+.cite a{font-size:.86em}
+.mainref{font-weight:600}
+ol.refs{list-style:none;margin:0;padding:0;font-size:.85rem;color:var(--muted)}
+ol.refs li{margin:0 0 7px;padding-left:2.6em;text-indent:-2.6em;line-height:1.5}
+ol.refs .rn{display:inline-block;width:2.4em;text-indent:0;color:var(--fg)}
+ol.refs li:target{background:var(--accent-soft);border-radius:4px}
+
+pre.bibtex{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:14px;
+           overflow-x:auto;font-size:.82rem;line-height:1.5}
+footer{padding:34px 0 60px;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line)}
+mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden}
+</style>
+<script>
+window.MathJax = {
+  loader: { load: ['[tex]/tagformat'] },
+  tex: {
+    packages: { '[+]': ['tagformat'] },
+    inlineMath: [['$','$'],['\\(','\\)']],
+    displayMath: [['$$','$$'],['\\[','\\]']],
+    processEnvironments: true,
+    tags: 'ams',
+    tagformat: { number: (n) => 'S' + n },
+    macros: Object.assign({"ba": "\\mathbf{a}", "bA": "\\mathbf{A}", "bb": "\\mathbf{b}", "bB": "\\mathbf{B}", "bc": "\\mathbf{c}", "bC": "\\mathbf{C}", "bd": "\\mathbf{d}", "bD": "\\mathbf{D}", "be": "\\mathbf{e}", "bE": "\\mathbf{E}", "bff": "\\mathbf{f}", "bF": "\\mathbf{F}", "bg": "\\mathbf{g}", "bG": "\\mathbf{G}", "bh": "\\mathbf{h}", "bH": "\\mathbf{H}", "bi": "\\mathbf{i}", "bI": "\\mathbf{I}", "bj": "\\mathbf{j}", "bJ": "\\mathbf{J}", "bk": "\\mathbf{k}", "bK": "\\mathbf{K}", "bl": "\\mathbf{l}", "bL": "\\mathbf{L}", "bm": "\\mathbf{m}", "bM": "\\mathbf{M}", "bn": "\\mathbf{n}", "bN": "\\mathbf{N}", "bo": "\\mathbf{o}", "bO": "\\mathbf{O}", "bp": "\\mathbf{p}", "bP": "\\mathbf{P}", "bq": "\\mathbf{q}", "bQ": "\\mathbf{Q}", "br": "\\mathbf{r}", "bR": "\\mathbf{R}", "bs": "\\mathbf{s}", "bS": "\\mathbf{S}", "bt": "\\mathbf{t}", "bT": "\\mathbf{T}", "bu": "\\mathbf{u}", "bU": "\\mathbf{U}", "bv": "\\mathbf{v}", "bV": "\\mathbf{V}", "bw": "\\mathbf{w}", "bW": "\\mathbf{W}", "bx": "\\mathbf{x}", "bX": "\\mathbf{X}", "by": "\\mathbf{y}", "bY": "\\mathbf{Y}", "bz": "\\mathbf{z}", "bZ": "\\mathbf{Z}", "balpha": "\\boldsymbol{\\alpha}", "bAlpha": "\\boldsymbol{\\Alpha}", "bbeta": "\\boldsymbol{\\beta}", "bBeta": "\\boldsymbol{\\Beta}", "bgamma": "\\boldsymbol{\\gamma}", "bGamma": "\\boldsymbol{\\Gamma}", "bdelta": "\\boldsymbol{\\delta}", "bDelta": "\\boldsymbol{\\Delta}", "bepsilon": "\\boldsymbol{\\epsilon}", "bEpsilon": "\\boldsymbol{\\Epsilon}", "bzeta": "\\boldsymbol{\\zeta}", "bZeta": "\\boldsymbol{\\Zeta}", "beeta": "\\boldsymbol{\\eta}", "bEta": "\\boldsymbol{\\Eta}", "btheta": "\\boldsymbol{\\theta}", "bTheta": "\\boldsymbol{\\Theta}", "biota": "\\boldsymbol{\\iota}", "bIota": "\\boldsymbol{\\Iota}", "bkappa": "\\boldsymbol{\\kappa}", "bKappa": "\\boldsymbol{\\Kappa}", "blambda": "\\boldsymbol{\\lambda}", "bLambda": "\\boldsymbol{\\Lambda}", "bmu": "\\boldsymbol{\\mu}", "bMu": "\\boldsymbol{\\Mu}", "bnu": "\\boldsymbol{\\nu}", "bNu": "\\boldsymbol{\\Nu}", "bxi": "\\boldsymbol{\\xi}", "bXi": "\\boldsymbol{\\Xi}", "bomikron": "\\boldsymbol{\\omikron}", "bOmikron": "\\boldsymbol{\\Omikron}", "bpi": "\\boldsymbol{\\pi}", "bPi": "\\boldsymbol{\\Pi}", "brho": "\\boldsymbol{\\rho}", "bRho": "\\boldsymbol{\\Rho}", "bsigma": "\\boldsymbol{\\sigma}", "bSigma": "\\boldsymbol{\\Sigma}", "btau": "\\boldsymbol{\\tau}", "bTau": "\\boldsymbol{\\Tau}", "bypsilon": "\\boldsymbol{\\ypsilon}", "bYpsilon": "\\boldsymbol{\\Ypsilon}", "bphi": "\\boldsymbol{\\phi}", "bPhi": "\\boldsymbol{\\Phi}", "bchi": "\\boldsymbol{\\chi}", "bChi": "\\boldsymbol{\\Chi}", "bpsi": "\\boldsymbol{\\psi}", "bPsi": "\\boldsymbol{\\Psi}", "bomega": "\\boldsymbol{\\omega}", "bOmega": "\\boldsymbol{\\Omega}", "nA": "\\mathbb{A}", "nB": "\\mathbb{B}", "nC": "\\mathbb{C}", "nD": "\\mathbb{D}", "nE": "\\mathbb{E}", "nF": "\\mathbb{F}", "nG": "\\mathbb{G}", "nH": "\\mathbb{H}", "nI": "\\mathbb{I}", "nJ": "\\mathbb{J}", "nK": "\\mathbb{K}", "nL": "\\mathbb{L}", "nM": "\\mathbb{M}", "nN": "\\mathbb{N}", "nO": "\\mathbb{O}", "nP": "\\mathbb{P}", "nQ": "\\mathbb{Q}", "nR": "\\mathbb{R}", "nS": "\\mathbb{S}", "nT": "\\mathbb{T}", "nU": "\\mathbb{U}", "nV": "\\mathbb{V}", "nW": "\\mathbb{W}", "nX": "\\mathbb{X}", "nY": "\\mathbb{Y}", "nZ": "\\mathbb{Z}", "cA": "\\mathcal{A}", "cB": "\\mathcal{B}", "cC": "\\mathcal{C}", "cD": "\\mathcal{D}", "cE": "\\mathcal{E}", "cF": "\\mathcal{F}", "cG": "\\mathcal{G}", "cH": "\\mathcal{H}", "cI": "\\mathcal{I}", "cJ": "\\mathcal{J}", "cK": "\\mathcal{K}", "cL": "\\mathcal{L}", "cM": "\\mathcal{M}", "cN": "\\mathcal{N}", "cO": "\\mathcal{O}", "cP": "\\mathcal{P}", "cQ": "\\mathcal{Q}", "cR": "\\mathcal{R}", "cS": "\\mathcal{S}", "cT": "\\mathcal{T}", "cU": "\\mathcal{U}", "cV": "\\mathcal{V}", "cW": "\\mathcal{W}", "cX": "\\mathcal{X}", "cY": "\\mathcal{Y}", "cZ": "\\mathcal{Z}", "eqnref": ["Eq.~\\eqref{#1}", 1], "T": "^{\\raisemath{-1pt}{\\mathsf{T}}}", "Perp": "\\perp\\!\\!\\! \\perp", "MethodName": "\\text{Greg}", "E": "\\mathbb{E}", "dag": "\\dagger", "ddag": "\\ddagger"}, {num:['{#1}',1], si:['{#1}',1], SI:['{#1}\\,{#2}',2]})
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Project Page</div>
+    <h1 class="title">CrashCourse: Learning Emergency Maneuvers from Privileged Driving Teachers</h1>
+    <div class="authors">Anonymous Authors</div>
+    <div class="venue">Under double-anonymous review at ICRA 2027</div>
+    <div class="buttons">
+      <a class="btn ghost dim" href="#">&#128196; Paper (coming soon)</a>
+      <a class="btn ghost dim" href="#">&#128187; Code (coming soon)</a>
+      <a class="btn ghost dim" href="#">&#127909; Video (coming soon)</a>
+    </div>
+    <figure class="teaser">
+      <img src="static/images/figures_teaser.png" alt="One CrashCourse encounter driven by three policies">
+      <figcaption>One documented CrashCourse encounter, driven from the same onset by the
+      released sensor policy, by the privileged teacher, and by the same student after
+      adapter-only fine-tuning on the teacher's demonstrations. The hatched panels are the
+      two rollouts that have not been run yet.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<section id="status">
+  <div class="wrap">
+    <div class="status">
+      <b>Work in progress.</b> The teacher results are measured: MU-SAC reaches
+      <b>53.11 DS</b> at <b>1.19 collisions/km</b> on CrashCourse, against 35.64 DS for the
+      strongest released camera policy and 39.35 for privileged PDM-Lite. The student
+      transfer experiments are still running, and every cell still marked
+      <span class="pend">P</span> here and in the paper is a pending run, not a measured
+      zero.
+    </div>
+  </div>
+</section>
+
+<section id="abstract">
+  <div class="wrap">
+    <h2>Abstract</h2>
+    <p class="lead">Emergency-driving competence depends both on learning effective responses
+    and on obtaining demonstrations that a sensor-based policy can use. We study these two
+    questions in CrashCourse, a crash-grounded closed-loop simulation suite. First, we train a
+    privileged driving teacher with MU-SAC, using distributional critics, multiplicative
+    steering conditioning and uncertainty-weighted replay; the teacher learns by reinforcement
+    without a behavior-cloning initialization or reference policy. Second, we construct a small
+    dataset of synchronized sensor observations and emergency-response targets from its
+    training-side rollouts, and adapt off-the-shelf driving models by supervised fine-tuning of
+    added adapters while their original weights stay frozen. Matched teacher ablations test the
+    RL method, while nominal-only adaptation, data-source controls and encounter-budget sweeps
+    test the value of the CrashCourse demonstrations. Ordinary-driving evaluation measures
+    regression rather than assuming that frozen base weights prevent it.</p>
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <h2>Teacher to student</h2>
+    <p>MU-SAC trains the privileged teacher in the reactive CrashCourse environment. A frozen
+    checkpoint is rolled out on the training split only, and each accepted encounter is
+    exported with synchronized student sensors, causal history and native targets. Released
+    sensor policies are then adapted by supervised fine-tuning of added adapters, with their
+    original weights frozen. Privileged simulator state never crosses into the deployed
+    student: what transfers is observations and teacher actions.</p>
+    <figure class="teaser">
+      <img src="static/images/figures_pipeline.png" alt="The three-stage teacher-to-student pipeline">
+    </figure>
+  </div>
+</section>
+
+<section id="benchmark">
+  <div class="wrap">
+    <h2>The benchmark</h2>
+    <p>CrashCourse scenarios are built from real crash geometries and replayed in closed loop
+    with reactive adversaries: an adversary tracks the ego vehicle every frame to preserve the
+    intended conflict geometry, follows explicit velocity control once the ego crosses the
+    trigger, and returns to simulator autopilot afterwards, so the conflict is reproducible
+    without the aftermath being scripted. The scenario families, towns and conditions are
+    listed in <a href="#content">the appendix material</a> below.</p>
+    <figure class="teaser">
+      <img src="static/images/figures_benchmark_design.png" alt="CrashCourse scenario construction">
+    </figure>
+    <p>Two measurements separate it from the closest broad benchmark: 33% of CrashCourse's
+    actor interactions leave the ego under two seconds to react, against 14% of
+    Bench2Drive's, and the impacts move to the front of the vehicle — 65% frontal against
+    13%. Bench2Drive penalizes a policy for being struck while it hesitates; CrashCourse
+    penalizes it for driving into a conflict it cannot resolve.</p>
+    <figure class="teaser">
+      <img src="static/images/figures_benchmark_stats.png" alt="Time-to-collision and impact-bearing against Bench2Drive">
+      <figcaption>(a) NPC-to-ego time-to-collision and NPC speed distributions.
+      (b) Ego collision-bearing density; both panels share one normalization constant.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="release">
+  <div class="wrap">
+    <h2>Code, data and video</h2>
+    <p>The CrashCourse scenario suite and evaluation harness, the teacher training code, the
+    exported emergency demonstrations and the qualitative video are released here once the
+    runs they document are complete. Nothing is withheld pending review beyond the paper PDF
+    itself, which goes up when review concludes.</p>
+  </div>
+</section>
+
+<section id="contents">
+  <div class="wrap">
+    <h2>Contents</h2>
+    <ul class="toc"><li class="d0"><a href="#sec-s1"><span class="num">S1</span>CARLA Benchmark Scenarios</a></li><li class="d0"><a href="#sec-s2"><span class="num">S2</span>Implementation and Reproducibility</a></li><li class="d0"><a href="#sec-s3"><span class="num">S3</span>Analysis, Evidence Registry and Claim Gates</a></li></ul>
+  </div>
+</section>
+
+<section id="content">
+  <div class="wrap">
+<p><span class="note">Working supplement. Scenario descriptions are inherited;
+teacher configurations, student adapters and experimental outcomes require validation.</span></p>
+<h2 id="sec-s1" class="secnum"><span class="num">S1</span>CARLA Benchmark Scenarios</h2>
+<p><span class="note"><strong>Historical scenario specification.</strong> Descriptions and example
+parameters are retained from the original manuscript, pending C01 configuration
+validation. They do not establish per-case solvability or final split counts.</span></p>
+<p>Designing highly dynamic collision scenarios in CARLA is challenging. In general, we trigger a scenario based on a position threshold. While a policy could, in principle, drive cautiously (<em>e.g</em>., at half the speed limit), we vary the distance and speed of the events such that a collision could still occur. We also incorporate surrounding traffic at the speed limit, such that overly abrupt braking or slowness can also induce collision risk (i.e., from behind). Qualitative examples from our scenarios are shown in our supplementary video.</p>
+<p><strong class="bp">Highway and High-Speed Conflicts.</strong> High-speed environments demand rapid perception and control from state-of-the-art models due to high kinetic energy and drastically reduced reaction windows. We evaluate agent resilience across distinct test cases implemented primarily in Town04, Town12, and Town13. In the adversarial breach scenario, a vehicle overtakes and executes a 7.5m/s lateral slide into the ego lane before braking to a halt, boxing the ego vehicle against a slow-moving 80km/h lead truck. Similarly, the highway cut-across and adjacent lane spin scenarios force the ego vehicle to handle sudden PIT-like intrusions and spinning dynamics from neighboring lanes that motivate a tested braking-versus-steering comparison. To test sustained obstacle detection, our highway ADAS obstacle suite and freeway crash scene variants present agents with late-revealed stationary wrecks, debris, and fleeing pedestrians.</p>
+<p><strong class="bp">Traffic Traps.</strong> Heavy commercial vehicles introduce unique visual occlusions and sudden lateral threats that break the nominal tracking assumptions of baseline models. The truck sudden lane change family of scenarios places a large vehicle in the adjacent lane that blindly merges right at 4.5m/s, with the heavy traffic variant specifically occupying the ego vehicle's right and rear zones to constrain the available lateral gaps. We also evaluate longitudinal prediction capabilities through the blind spot trap, where a heavy truck brakes hard directly ahead while an adversarial vehicle pacing at 55km/h simultaneously blocks the left lane. Furthermore, high-velocity geometric edge cases are evaluated via the wrong-way driver scenario, where a vehicle approaches head-on within a divided carriageway at 90km/h, forcing the planner to rapidly update its same-direction priors under an extreme closing rate.</p>
+<p><strong class="bp">Urban Intersections and Cross-Traffic.</strong> Urban junctions introduce complex semantic geometries and unpredictable cross-traffic trajectories that challenge an agent's ability to safely navigate contested spaces. Our benchmark includes specific intersection scenarios located across Town03, Town12, and Town13 to test right-of-way violations and dense traffic maneuvers. In the classic red-light runner scenario, the ego vehicle enters a junction on a green signal at 25km/h while a cross-traffic actor violates the light at 60km/h, creating a short-warning broadside conflict. We adapt this for asymmetric geometry in the Texas left-turn variant, forcing the ego vehicle to pause its committed turn when an oncoming vehicle runs a red light across a wide multi-lane arterial.</p>
+<p><strong class="bp">Aggressive Turning.</strong> Small actors and aggressive turning kinematics require specialized spatial reasoning capabilities to prevent catastrophic side impacts. The motorcycle hanging scenario launches a fast-moving rider at 90km/h straight into the path of an ego vehicle committed to a slow left turn, testing collision kinematics that end with the motorcycle lodged on overhead signal structures. Additionally, the Town13 crosswalk cut-in and lane filtering scenarios evaluate lateral robustness against actors that start behind the ego vehicle, overtake in the adjacent lane, and sharply cut right into the ego path to execute an immediate right turn.</p>
+<p><strong class="bp">Residential Occlusions and Vulnerable Road Users.</strong> Residential and curbside environments obscure critical hazards behind static infrastructure, forcing the ego vehicle to anticipate sudden intrusions from completely occluded sightlines. We examine these occluded encounters through scenarios centered on short-warning lateral crossings. The hidden pedestrian and mid-block school drop-off scenarios hide vulnerable road users behind parked vans and queued traffic, requiring the ego vehicle to safely modulate its 15mph speed before the pedestrian visibly breaches the lane boundary. We similarly test the sudden loss of balance in the cyclist fall scenario, where an adjacent rider collapses sideways into the vehicle path at extremely close range.</p>
+<p><strong class="bp">Stationary-to-Dynamic Transitions.</strong> Parked vehicles and static roadside assets frequently transition into active dynamic threats with minimal pre-motion warnings. The door open scenario evaluates an agent's reaction to a sudden lane intrusion from a tightly parked curbside vehicle, providing almost zero longitudinal warning distance. Furthermore, the vehicle reverse and side street wall occlusion variants place hidden actors in residential driveways who execute decisive, high-acceleration pull-outs directly into the ego lane. These scenarios test responses to an off-road or stationary actor entering the active lane with limited visible warning. Information, anticipation, and control explanations require paired analyses.</p>
+<h2 id="sec-s2" class="secnum"><span class="num">S2</span>Implementation and Reproducibility</h2>
+<p><strong class="bp">Teacher critic and replay.</strong> Each ensemble critic predicts return quantiles $q_k^i(z,a)$ and their mean
+$\bar q_k(z,a)$. With a sampled target-critic subset $\mathcal K$, the target is</p>
+<div class="eqn">\begin{align}
+k^*&amp;=\arg\min_{k\in\mathcal K}\bar q_k(z',a'),\\
+y_j&amp;=r+\gamma(1-d)\big[q_{k^*}^j(z',a')-\alpha\log\pi_\theta(a'\mid z')\big].
+\label{eq:target}
+\end{align}</div>
+<p>Here $a'$ is sampled from the current actor and $d$ denotes terminal failure or
+completion under the frozen bootstrap rule. Quantile critics minimize</p>
+<div class="eqn">\begin{equation}
+L_k=\mathbb{E}_{\mathcal D}\left[\frac{1}{N}\sum_{i=1}^N\sum_{j=1}^N
+\rho_{\tau_i}^{\kappa}\big(y_j-q_k^i(z,a)\big)\right],
+\label{eq:quantile}
+\end{equation}</div>
+<p>where $\tau_i=(i-0.5)/N$ and $\rho$ is the quantile-Huber loss.
+The teacher actor is optimized against these critics and entropy without the
+student paper's BC-reference regularizer.</p>
+<p><strong class="bp">MU-SAC conditioning and replay.</strong> MU-SAC projects the state and an encoded continuous steering action into a
+shared width $c$, then fuses them multiplicatively before the quantile heads:</p>
+<div class="eqn">\begin{equation}
+x=\frac{h_{\rm state}(z)\odot h_{\rm cond}(a_{\rm steer})}{\sqrt c}.
+\label{eq:film}
+\end{equation}</div>
+<p>The heads represent the discrete acceleration actions. The ensemble supplies
+between-critic disagreement and average within-critic spread,</p>
+<div class="eqn">\begin{align}
+\sigma^2_{\rm epi}&amp;=\operatorname{Var}_k(\bar q_k(z,a)),\\
+\sigma^2_{\rm ale}&amp;=\mathbb{E}_k[\operatorname{Var}_i(q_k^i(z,a))],\\
+U(z,a)&amp;=\sigma^2_{\rm epi}/\sigma^2_{\rm ale}.
+\label{eq:unc}
+\end{align}</div>
+<p>This ratio drives uncertainty-weighted replay. These quantities are operational
+proxies, not a proven decomposition of uncertainty. Denominator stabilization,
+priority clipping, sampling exponent, importance weights and update cadence
+are <span class="pend">[pending: S2-11 replay implementation]</span>. The inherited settings are 32
+quantiles, 10 critics, a 16-dimensional steering lift and $c=256$;
+<span class="note">confirm these against the privileged training run rather than
+assuming that camera-policy configuration values were reused.</span></p>
+<p><strong class="bp">Teacher configuration to release.</strong> Record code revision, checkpoint hash, simulator/evaluator versions, actor and
+critic architectures, state fields and normalization, actor/encoder
+initialization, trainable modules, random seeds, action mapping, control rate,
+reward constants, terminal/truncation bootstrapping, optimizer and learning
+rates. For MU-SAC record quantiles, ensemble size, sampled target subset,
+conditioning dimensions, entropy targets/temperatures, target-update rule,
+replay capacity, warmup, prioritization stabilization, sampling and importance
+correction. Preserve per-run environment steps, learner updates, batch sizes,
+hardware, wall time and checkpoint-selection evidence.
+<span class="pend">[pending: S2-11 machine-readable configurations and training logs]</span>.</p>
+<p><strong class="bp">Retrained CaRL and RL Coach teachers.</strong> CaRL <span class="cite">[<a href="#ref-1">1</a>]</span> and the Roach RL Coach <span class="cite">[<a href="#ref-2">2</a>]</span> are
+retrained here with their own published recipes on the CrashCourse training
+split; no released checkpoint is evaluated in their rows. For each,
+record the source repository and revision, deviations from the released
+implementation, privileged inputs and normalization, policy and value-network
+architecture, action parameterization, reward and termination rules, replay,
+training and update budgets, checkpoint selection, seeds, hardware and wall
+time. Run them on the same CrashCourse partitions, vehicle dynamics, timestep,
+control bounds and evaluator as MU-SAC. If a native method contract cannot be
+equalized without changing the method, preserve it and label the difference in
+the comparison rather than presenting the result as a controlled component
+ablation. <span class="pend">[pending: S2-01 CaRL/Coach configurations and validation artifacts]</span>.</p>
+<p><strong class="bp">Teacher export schema.</strong> Each record contains dataset version; source clip/family/instance/split IDs;
+map, route, weather and physics hashes; teacher code/checkpoint/input contract;
+environment seed; timestamps and frame IDs; sensor paths, calibration and
+history masks; ego/navigation inputs; executed controls and delay; native future
+targets and validity masks; outcome, contact, departure and progress logs;
+selection decision and reason; collection/label-generation cost. Diagnostic
+trigger and hidden-state fields must be segregated from student inputs.
+Keep source-related variants in their declared partition and audit hashes for
+cross-split duplication. Report the rejected pool without training on failed
+actions as successful expert labels.</p>
+<p><strong class="bp">Native student training audit.</strong> For each selected release, record all sensor requirements, preprocessing,
+coordinate conventions, time horizon, controller/PID settings, native losses,
+auxiliary labels and causal history. Verify observation/target alignment on a
+visualized batch; check that incomplete history/future targets are masked.
+Run an initial-function equivalence check before SFT and confirm gradients only
+reach the adapter parameters. Freeze running statistics in base normalization
+layers. Report total/trainable parameters, placement/rank and initialization,
+optimizer, learning rate, batch size, steps, mixture, sampling policy, memory,
+wall time and validation rule. A small-batch fit check is a data/gradient sanity
+check, not evidence of closed-loop transfer.
+<span class="pend">[pending: S2-03/04/05 loader, synchronization and gradient audit artifacts]</span>.</p>
+<p><strong class="bp">Adaptation and collection accounting.</strong> Three principal arms on one architecture yield three arm configurations, six if a
+second student is trained. The two
+adapted arms require twelve trained checkpoints at three SFT seeds each; the
+two original releases are evaluated across environment seeds without fictitious
+retraining. The five teacher ablations require fifteen training runs at three
+seeds each. Existing compatible teacher runs may fill these slots after audit.
+Budget curves, data-source and full-fine-tuning experiments add only the
+specified configurations; they are not an unrestricted Cartesian product.
+<span class="pend">[pending: Final resource allocation and existing-run compatibility inventory]</span>.</p>
+<p><strong class="bp">Evaluation protocol details.</strong> Compute DS per route before averaging; do not multiply an aggregate RC by an
+aggregate penalty. Use the evaluator's collision accounting without a bespoke
+deduplication rule, and the pinned statistics manager's distance calculation.
+Use the actual scheduled route count for CrashCourse and the complete official
+manifest for general Bench2Drive; log infrastructure retries and resolve
+coverage before reporting final results. Record learner updates and wall time as
+well as environment steps, since additional critics change compute cost.
+Reimplementations of a competing teacher must be validated against that method's
+released code or reported reference setting. Count unique encounters, frames,
+sampled windows and optimization exposures separately, keep the total SFT update
+budget fixed across budgets, and account for teacher training, attempted
+collection, accepted-data storage, native label generation and SFT compute
+separately. Choose checkpoints on emergency development performance subject to a
+predeclared nominal-development constraint. In the common-onset protocol verify
+ego and actor state, adversary phase and controller state before the branch.</p>
+<h2 id="sec-s3" class="secnum"><span class="num">S3</span>Analysis, Evidence Registry and Claim Gates</h2>
+<p><strong class="bp">Episode-level results.</strong> Store one row per policy checkpoint, instance and environment seed, including
+split, group, DS, RC, SR, collision counts by type, evaluator distance,
+efficiency, comfort and retry status. Compute CR from pooled collisions and
+distance within each evaluation seed. Keep raw infractions and termination
+status for evaluator auditing. Preserve training seed separately from environment seed. Export
+seed-level and per-instance summaries and generate all tables, plots and prose
+numbers from the same versioned records. Report the four main metrics consistently in all comparisons.</p>
+<figure class="tbl" id="tab:privilege"><div class="caption"><b>Table S1.</b> <strong>Information contract.</strong> P means unresolved. Replace each P with
+observed, privileged, unavailable or not used, and state range/history. Future
+information is not assumed available. The student column is TFv6; a second student is added only if it is trained.</div><div class="tablewrap"><table><thead><tr><th class="left">Input</th><th class="center">MU-SAC</th><th class="center">CaRL</th><th class="center">Coach</th><th class="center">PDM-Lite</th><th class="center">SAC</th><th class="center">TFv6</th></tr></thead><tbody><tr><td class="left">Ego state and navigation</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Actor positions / velocities</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Occluded actor state</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Road geometry / route lookahead</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Friction / dynamics parameters</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Agent intentions / future trajectories</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Sensors / causal history</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Script trigger / diagnostic metadata</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr></tbody></table></div></figure>
+<figure class="tbl" id="tab:data"><div class="caption"><b>Table S2.</b> <strong>Demonstration provenance and cost (S2-03/07).</strong> Collection is training-only; accepted episodes are successful under the fixed selection rule. Small-data claims count unique encounters, not correlated frames.</div><div class="tablewrap"><table><thead><tr><th class="left">Dataset version / source</th><th class="center">Attempts</th><th class="center">Accepted</th><th class="center">Families</th><th class="center">Frames / hours</th><th class="center">Collection cost</th></tr></thead><tbody><tr><td class="left">MU-SAC emergency pool</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Nested 50-encounter subset (proposed)</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Nested 200-encounter subset (proposed)</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Alternative expert emergency pool</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Separate nominal replay</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr></tbody></table></div></figure>
+<p><strong class="bp">Paired uncertainty plan.</strong> Compute instance means across matched environment repetitions, then the declared
+all-instance aggregate for each training seed. Report training-seed mean and
+standard deviation. For uncertainty of adapted-minus-control differences,
+resample paired instance IDs as a shared cluster across arms and resample
+independent training-seed pairs as a second dimension; preserve all environment
+repetitions within each selected instance and retain a single original
+checkpoint when it is the reference. If split design requires source-family
+clustering, predeclare that cluster level and report the number of independent
+clusters. Specify confidence level, bootstrap repetitions and random seed before
+testing. Three training seeds yield limited precision; publish individual runs.
+General Bench2Drive regression reports only before/after DS and RC and
+their paired degradation. Primary per-model emergency transfer claims and
+their multiplicity treatment are
+<span class="pend">[pending: C03 confidence level, resampling settings and family of tests]</span>.</p>
+<p><strong class="bp">Successful-reference registry.</strong> For every common-start case, record initial-state hash, warmup history,
+restoration tolerance, frozen controller/checkpoint, permitted action bounds,
+information contract, attempts and outcomes. Fixed policy coverage, hindsight
+best-of-teachers coverage and search/library witness coverage are separate
+fields. Keep all valid unresolved cases. Visibility and action-onset traces
+qualify anticipation versus response; they do not remove the privilege gap.</p>
+<figure class="tbl" id="tab:behavior"><div class="caption"><b>Table S3.</b> <strong>Common-onset response.</strong> Policies receive the same verified approach and causal history, then drive to the original route end under the same evaluator. DS and RC cover the full route, including the shared approach; CR and SR use the same full-route records. No shortened-horizon success score is introduced. Results are mean $\pm$ standard deviation across seeds.</div><div class="tablewrap"><table><thead><tr><th class="left">Policy / arm</th><th class="center">DS $\uparrow$</th><th class="center">RC (%) $\uparrow$</th><th class="center">CR (/km) $\downarrow$</th><th class="center">SR (%) $\uparrow$</th></tr></thead><tbody><tr><td class="left">Fixed braking</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Fixed steer-plus-brake</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Frozen MU-SAC teacher</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Released TFv6</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Adapted TFv6</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr></tbody></table></div></figure>
+<figure class="tbl" id="tab:groups"><div class="caption"><b>Table S4.</b> <strong>Performance across hazard groups (S2-01/04/05).</strong> Report the same four main metrics within each predeclared group, with scheduled route count $N$ per seed. The released and adapted TFv6 rows are listed separately.</div><div class="tablewrap"><table><thead><tr><th class="left">Hazard group</th><th class="left">Policy</th><th class="center">$N$</th><th class="center">DS $\uparrow$</th><th class="center">RC (%) $\uparrow$</th><th class="center">CR (/km) $\downarrow$</th><th class="center">SR (%) $\uparrow$</th></tr></thead><tbody><tr><td class="left">Highway / high-speed conflicts</td><td class="left">MU-SAC teacher</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Highway / high-speed conflicts</td><td class="left">TFv6: released</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Highway / high-speed conflicts</td><td class="left">TFv6: adapted</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Traffic traps</td><td class="left">MU-SAC teacher</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Traffic traps</td><td class="left">TFv6: released</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Traffic traps</td><td class="left">TFv6: adapted</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Urban intersections / cross-traffic</td><td class="left">MU-SAC teacher</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Urban intersections / cross-traffic</td><td class="left">TFv6: released</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Urban intersections / cross-traffic</td><td class="left">TFv6: adapted</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Occluded vulnerable road users</td><td class="left">MU-SAC teacher</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Occluded vulnerable road users</td><td class="left">TFv6: released</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Occluded vulnerable road users</td><td class="left">TFv6: adapted</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Reduced grip / loss of stability</td><td class="left">MU-SAC teacher</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Reduced grip / loss of stability</td><td class="left">TFv6: released</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Reduced grip / loss of stability</td><td class="left">TFv6: adapted</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Secondary-collision risks</td><td class="left">MU-SAC teacher</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Secondary-collision risks</td><td class="left">TFv6: released</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr><tr><td class="left">Secondary-collision risks</td><td class="left">TFv6: adapted</td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td><td class="center"><span class="pend">P</span></td></tr></tbody></table></div></figure>
+<p><strong class="bp">Information intervention (S2-08).</strong> Use identical underlying encounters and matched optimization to compare a
+student's supported short versus longer causal history, or explicitly trained
+visibility-aligned versus full-state teachers. Changing a teacher's inputs only
+at evaluation can create a new distribution shift and needs separate labeling.
+Measure teacher and student outcomes and demonstration fit. If no causal
+intervention is feasible, report descriptive timing evidence without a
+mechanistic claim.</p>
+<p><strong class="bp">Bounded corrective-data study (S2-09).</strong> If naive transfer fails, one training-only student rollout/relabel round may be
+compared with equal-volume new teacher demonstrations. Report added environment
+interaction, label budget, state coverage and general Bench2Drive DS/RC degradation. Do not mix
+this adaptive collection into the fixed teacher-rollout dataset without a new
+version and separate arm.</p>
+<p><strong class="bp">Predeclared interpretation.</strong> Strong teacher and gains on two students support the intended teacher-transfer
+story. Only one improved student supports a named-model result. Strong teacher
+and poor transfer require honest negative results, with a diagnosed bottleneck
+only if an intervention supports it. Teacher-source advantage requires S2-06;
+small-data efficiency requires S2-07; minimal regression requires S2-10;
+adapter-specific advantage requires S2-12. No table placeholder or favorable
+point estimate is itself evidence for those claims.</p>
+  </div>
+</section>
+
+<section id="references">
+  <div class="wrap">
+    <h2>References</h2>
+    <ol class="refs"><li id="ref-1"><span class="rn">[1]</span> B. Jaeger, D. Dauner, J. Beiwenger <em>et al.</em>, &ldquo;CaRL: Learning scalable planning policies with simple rewards,&rdquo; <em>CoRL</em>, 2025.</li><li id="ref-2"><span class="rn">[2]</span> Z. Zhang, A. Liniger, D. Dai <em>et al.</em>, &ldquo;End-to-end urban driving by imitating a reinforcement learning coach,&rdquo; in <em>ICCV</em>, 2021.</li></ol>
+  </div>
+</section>
+
+<section id="bibtex">
+  <div class="wrap">
+    <h2>BibTeX</h2>
+    <pre class="bibtex">@inproceedings{crashcourse2027,
+  title     = {CrashCourse: Learning Emergency Maneuvers from Privileged Driving Teachers},
+  author    = {Anonymous},
+  booktitle = {Under review},
+  year      = {2027}
+}</pre>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Numbers prefixed with S refer to this page; plain numbers refer to the main paper.
+    This page is the project's extra material. ICRA has no supplementary-material track, so
+    nothing here is required to follow the 8-page paper.
+  </div>
+</footer>
+
+</body>
+</html>
