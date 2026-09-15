@@ -157,6 +157,12 @@ def ref_html(label):
     if label in LABELS:
         kind, disp, anchor = LABELS[label]
         return '<a href="#%s">%s</a>' % (anchor, disp)
+    # Table bodies are shared with the main paper, where a cross-document \ref
+    # carries no MAIN- prefix (xr resolves it).  Fall back to the paper's own
+    # number rather than emitting a dead link to a float this page never shows.
+    num = MAIN_LABELS.get('MAIN-' + label)
+    if num:
+        return '<span class="mainref">%s</span>' % num
     return '<a href="#%s">%s</a>' % (label, '?')
 
 # LaTeX accent commands -> precomposed Unicode. Bare forms are limited to the
@@ -400,8 +406,36 @@ def render_figure(body, num, label, caption):
     cap = '<figcaption><b>Fig. %s.</b> %s</figcaption>' % (num, inline(caption))
     return '<figure class="fig" id="%s">%s%s</figure>' % (label or 'fig%s' % num, grid, cap)
 
+TABULAR_RE = re.compile(r'\\begin\{(tabularx|tabular\*|tabular)\}')
+
+def table_panels(body):
+    """Every tabular in the float, each with the \textbf{(a) ...} heading that
+    precedes it.  Multi-panel tables are laid out side by side in the paper --
+    in minipages, or stacked with a bold panel title -- and rendering only the
+    first tabular silently drops the rest."""
+    panels, pos = [], 0
+    while True:
+        m = TABULAR_RE.search(body, pos)
+        if not m: break
+        _, end = env_span(body, m.group(1), m.end())
+        title, mt = '', None
+        for cand in re.finditer(r'\\textbf\{', body[pos:m.start()]):
+            mt = cand
+        if mt:
+            g, _ = find_group(body[pos:m.start()], mt.end() - 1)
+            if g.lstrip().startswith('('):
+                title = g
+        panels.append((title, parse_tabular(body[m.start():end])))
+        pos = end
+    return panels
+
 def render_table(body, num, label, caption):
-    tbl = parse_tabular(body)
+    panels = table_panels(body)
+    if not panels:
+        panels = [('', parse_tabular(body))]
+    tbl = ''.join(
+        ('<div class="panelhead">%s</div>' % inline(t) if t else '') + h
+        for t, h in panels)
     cap = '<div class="caption"><b>Table %s.</b> %s</div>' % (num, inline(caption))
     return '<figure class="tbl" id="%s">%s%s</figure>' % (label or 'tab%s' % num, cap, tbl)
 
@@ -566,8 +600,31 @@ def expand_inputs(path, depth=0):
         return expand_inputs(f, depth + 1) if os.path.exists(f) else ''
     return re.sub(r'\\input\{([^}]*)\}', sub, txt)
 
+NUMBERS = {}
+
+def load_numbers(path):
+    """tables/numbers.tex is the single source for every number quoted in prose.
+    It is not inlined into the page (it is macro definitions, not text), so the
+    macros are expanded here instead -- otherwise \\numRoutes{} silently
+    disappears from a caption and the sentence reads as if the count were never
+    written."""
+    if not os.path.exists(path): return
+    txt = open(path).read()
+    for m in re.finditer(r'\\newcommand\{\\([A-Za-z]+)\}\{', txt):
+        body, _ = find_group(txt, m.end() - 1)
+        NUMBERS[m.group(1)] = body
+
+def expand_numbers(t):
+    for _ in range(4):                      # macros may cite other macros
+        new = re.sub(r'\\([A-Za-z]+)\{\}|\\([A-Za-z]+)(?![A-Za-z])',
+                     lambda m: NUMBERS.get(m.group(1) or m.group(2), m.group(0)), t)
+        if new == t: break
+        t = new
+    return t
+
 def main():
-    src = expand_inputs(os.path.join(PAPER, 'supplementary.tex'))
+    load_numbers(os.path.join(PAPER, 'tables', 'numbers.tex'))
+    src = expand_numbers(expand_inputs(os.path.join(PAPER, 'supplementary.tex')))
     src = strip_comments(src)
     if '\\begin{document}' in src:
         src = src.split('\\begin{document}', 1)[1].split('\\end{document}')[0]

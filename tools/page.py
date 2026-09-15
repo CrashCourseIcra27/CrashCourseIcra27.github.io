@@ -104,6 +104,9 @@ figure img.single{width:100%;border:1px solid var(--line);background:#fff;paddin
 .missing{padding:10px;border:1px dashed var(--line);color:var(--muted);font-size:.85rem}
 
 /* ---------- tables ---------- */
+.panelhead{font-weight:650;font-size:.9rem;margin:14px 0 6px}
+.panelhead:first-of-type{margin-top:0}
+.tbl .tablewrap + .panelhead{margin-top:18px}
 .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);
            border-radius:8px}
 table{border-collapse:collapse;width:100%;font-size:.87rem;font-variant-numeric:tabular-nums}
