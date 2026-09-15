@@ -403,10 +403,10 @@ targets are learnable through it.</p>
 <p>Demonstrations come from the frozen MU-SAC teacher alone, on the training
 instances it drives at a driving score of 100; an instance the teacher does not
 solve perfectly is not used, since it has no correct label to give. The first
-fit's held-out waypoint error was under a metre and its closed-loop behavior was worse than the
-untouched backbone on several encounters, including new collisions on ones the
-released model completed cleanly, which is the covariate-shift gap DAgger
-addresses. Three rounds follow, each initialized from the previous round's
+fit's held-out waypoint error was small while its closed-loop behavior was worse
+than the untouched backbone on several encounters, including new collisions on
+ones the released model completed cleanly, which is the covariate-shift gap
+DAgger addresses. Three rounds follow, each initialized from the previous round's
 weights at the lower learning rate, each aggregating the states its own
 predecessor reached, so the on-policy share of a training batch falls as the
 accumulated corpus grows.</p>
