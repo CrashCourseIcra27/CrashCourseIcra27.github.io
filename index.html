@@ -400,22 +400,21 @@ if any decoder parameter is trainable, so the frozen-base claim is enforced
 rather than asserted. Before the full run, a 32-sample overfit check at
 $10^{-3}$ for 300 steps confirms that gradients reach the adapter and that the
 targets are learnable through it.</p>
-<p>Demonstrations come from whichever privileged policy drives a given training
-instance perfectly; the pool is the reinforcement-learned teachers and the
-rule-based privileged controller, and an instance with no perfect demonstrator
-is not used. The first fit covered 29 such instances. Its held-out waypoint
-error was under a metre and its closed-loop behavior was worse than the
+<p>Demonstrations come from the frozen MU-SAC teacher alone, on the training
+instances it drives at a driving score of 100; an instance the teacher does not
+solve perfectly is not used, since it has no correct label to give. The first
+fit's held-out waypoint error was under a metre and its closed-loop behavior was worse than the
 untouched backbone on several encounters, including new collisions on ones the
 released model completed cleanly, which is the covariate-shift gap DAgger
 addresses. Three rounds follow, each initialized from the previous round's
 weights at the lower learning rate, each aggregating the states its own
-predecessor reached. The on-policy share of the training batch falls from 55%
-to 33% across the rounds as the accumulated corpus grows.</p>
+predecessor reached, so the on-policy share of a training batch falls as the
+accumulated corpus grows.</p>
 <figure class="tbl" id="tab:adapter"><div class="caption"><b>Table S3.</b> <strong>TFv6 adaptation.</strong> The adapter sits on the context tokens ahead
 of the frozen planning decoder and is an exact no-op at initialization. Rounds
-1&ndash;3 are DAgger: the current adapter drives, the privileged teacher relabels the
+1&ndash;3 are DAgger: the current adapter drives, the frozen MU-SAC teacher relabels the
 states it reached, and the new data is aggregated into the corpus rather than
-replacing it. Each round starts from the previous round's weights.</div><div class="tablewrap"><table><thead><tr><th class="left"></th><th class="left">Value</th></tr></thead><tbody><tr><td colspan="2" class="left"><em>Adapter</em></td></tr><tr><td class="left">Token dimension</td><td class="left">256</td></tr><tr><td class="left">Rank</td><td class="left">16</td></tr><tr><td class="left">$W_{\rm up}$ initialization</td><td class="left">zero</td></tr><tr><td class="left">$W_{\rm down}$ initialization</td><td class="left">default</td></tr><tr><td class="left">Gate initialization</td><td class="left">1.0</td></tr><tr><td class="left">Trainable modules</td><td class="left">adapter only</td></tr><tr><td colspan="2" class="left"><em>First fit</em></td></tr><tr><td class="left">Optimizer</td><td class="left">Adam</td></tr><tr><td class="left">Learning rate</td><td class="left">$3\times10^{-4}$</td></tr><tr><td class="left">Batch size</td><td class="left">64</td></tr><tr><td class="left">Steps</td><td class="left">2,000</td></tr><tr><td class="left">Held-out fraction</td><td class="left">10%</td></tr><tr><td class="left">Demonstration instances</td><td class="left">29</td></tr><tr><td class="left">Seed</td><td class="left">0</td></tr><tr><td colspan="2" class="left"><em>DAgger rounds 1&ndash;3</em></td></tr><tr><td class="left">Learning rate</td><td class="left">$1\times10^{-4}$</td></tr><tr><td class="left">Batch size / steps</td><td class="left">64 / 2,000</td></tr><tr><td class="left">Aggregation</td><td class="left">union, oversample $1\times$</td></tr><tr><td class="left">Initialization</td><td class="left">previous round's weights</td></tr><tr><td class="left">Seed</td><td class="left">0</td></tr><tr><td colspan="2" class="left"><em>On-policy data collected</em></td></tr><tr><td class="left">Round 1</td><td class="left">7.1k ticks, 55.0%</td></tr><tr><td class="left">Round 2</td><td class="left">7.6k ticks, 36.9%</td></tr><tr><td class="left">Round 3</td><td class="left">9.9k ticks, 32.9%</td></tr></tbody></table></div></figure>
+replacing it. Each round starts from the previous round's weights.</div><div class="tablewrap"><table><thead><tr><th class="left"></th><th class="left">Value</th></tr></thead><tbody><tr><td colspan="2" class="left"><em>Adapter</em></td></tr><tr><td class="left">Token dimension</td><td class="left">256</td></tr><tr><td class="left">Rank</td><td class="left">16</td></tr><tr><td class="left">$W_{\rm up}$ initialization</td><td class="left">zero</td></tr><tr><td class="left">$W_{\rm down}$ initialization</td><td class="left">default</td></tr><tr><td class="left">Gate initialization</td><td class="left">1.0</td></tr><tr><td class="left">Trainable modules</td><td class="left">adapter only</td></tr><tr><td colspan="2" class="left"><em>First fit</em></td></tr><tr><td class="left">Optimizer</td><td class="left">Adam</td></tr><tr><td class="left">Learning rate</td><td class="left">$3\times10^{-4}$</td></tr><tr><td class="left">Batch size</td><td class="left">64</td></tr><tr><td class="left">Steps</td><td class="left">2,000</td></tr><tr><td class="left">Held-out fraction</td><td class="left">10%</td></tr><tr><td class="left">Seed</td><td class="left">0</td></tr><tr><td colspan="2" class="left"><em>DAgger rounds 1&ndash;3</em></td></tr><tr><td class="left">Learning rate</td><td class="left">$1\times10^{-4}$</td></tr><tr><td class="left">Batch size / steps</td><td class="left">64 / 2,000</td></tr><tr><td class="left">Aggregation</td><td class="left">union, oversample $1\times$</td></tr><tr><td class="left">Initialization</td><td class="left">previous round's weights</td></tr><tr><td class="left">Seed</td><td class="left">0</td></tr></tbody></table></div></figure>
 <p><strong class="bp">Native student training audit.</strong> For each selected release, record all sensor requirements, preprocessing,
 coordinate conventions, time horizon, controller/PID settings, native losses,
 auxiliary labels and causal history. Verify observation/target alignment on a
