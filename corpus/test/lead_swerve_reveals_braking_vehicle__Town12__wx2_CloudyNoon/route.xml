@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town12">
+    <weathers>
+      <weather route_percentage="0" cloudiness="60.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="60.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="3569.58" y="3110.82" z="369.22" />
+      <position x="3579.58" y="3110.77" z="369.25" />
+      <position x="3589.58" y="3110.73" z="369.28" />
+      <position x="3599.58" y="3110.68" z="369.31" />
+      <position x="3609.58" y="3110.64" z="369.34" />
+      <position x="3619.58" y="3110.59" z="369.36" />
+      <position x="3629.58" y="3110.55" z="369.37" />
+      <position x="3639.58" y="3110.50" z="369.39" />
+      <position x="3649.58" y="3110.46" z="369.41" />
+      <position x="3659.58" y="3110.41" z="369.43" />
+      <position x="3669.58" y="3110.37" z="369.45" />
+      <position x="3679.58" y="3110.32" z="369.48" />
+      <position x="3689.58" y="3110.28" z="369.51" />
+      <position x="3699.58" y="3110.24" z="369.54" />
+    </waypoints>
+    <scenarios>
+      <scenario name="LeadSwerveRevealsBrakingVehicleTown12_0" type="LeadSwerveRevealsBrakingVehicleTown12">
+        <trigger_point x="3579.58" y="3110.77" z="369.25" yaw="-0.26" />
+        <activation_distance_m value="130" />
+        <lead_vehicle_ahead_distance_m value="22" />
+        <hazard_vehicle_ahead_distance_m value="58" />
+        <lead_follow_gap_m value="20" />
+        <lead_max_speed_kmh value="70" />
+        <hazard_speed_kmh value="42" />
+        <hazard_brake_trigger_gap_m value="55" />
+        <lead_react_delay_s value="0.9" />
+        <swerve_pulse_s value="0.55" />
+        <swerve_steer value="0.32" />
+        <lead_escape_speed_kmh value="62" />
+        <block_hold_after_stop_s value="4" />
+        <block_max_s value="30" />
+        <ego_arrive_gap_m value="24" />
+        <clear_speed_kmh value="45" />
+        <clear_max_s value="18" />
+        <vanish_distance_m value="70" />
+        <ego_speed_cap_kmh value="80" />
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

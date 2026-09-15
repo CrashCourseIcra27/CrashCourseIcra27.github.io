@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town03">
+    <weathers>
+      <weather route_percentage="0" cloudiness="60.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="60.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="5.5" y="-93.8" z="0.0"/>
+      <position x="5.5" y="-97.8" z="0.0"/>
+      <position x="5.6" y="-101.8" z="0.0"/>
+      <position x="5.7" y="-105.8" z="0.0"/>
+      <position x="5.8" y="-109.8" z="0.0"/>
+      <position x="5.9" y="-113.8" z="0.0"/>
+      <position x="6.0" y="-117.8" z="0.0"/>
+      <position x="6.0" y="-121.8" z="0.0"/>
+      <position x="-8.0" y="-138.6" z="0.0"/>
+      <position x="-20.0" y="-138.6" z="0.0"/>
+      <position x="-35.0" y="-138.6" z="0.0"/>
+      <position x="-50.0" y="-138.6" z="0.0"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="OncomingMotorcycleDuringLeftTurnTown03_0" type="OncomingMotorcycleDuringLeftTurnTown03">
+        <trigger_point x="5.5" y="-98.8" z="0.0" yaw="-88.6"/>
+        <other_actor x="6.2" y="-150.0" z="0.5"
+                     yaw="91.4"
+                     model="vehicle.kawasaki.ninja"
+                     rolename="hanging_motorcycle"/>
+        <motorcycle_speed_kmh value="110" />
+        <trigger_distance_m value="10" />
+        <turn_commit_yaw_deg value="1" />
+        <intersection_center_x value="6.5" />
+        <intersection_center_y value="-130.0" />
+        <forced_turn_start_distance_m value="6.5" />
+        <straight_hold_start_distance_m value="13.0" />
+        <forced_turn_steer value="-0.85" />
+        <forced_turn_throttle value="0.36" />
+        <forced_turn_end_yaw_deg value="65" />
+        <traffic_clean_half_x value="35" />
+        <traffic_clean_half_y value="24" />
+        <launch_z_mps value="18" />
+        <ego_speed_cap_kmh value="15" />
+        <ego_min_speed_kmh value="8" />
+        <max_run_time value="30" />
+        <post_impact_hold value="6" />
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

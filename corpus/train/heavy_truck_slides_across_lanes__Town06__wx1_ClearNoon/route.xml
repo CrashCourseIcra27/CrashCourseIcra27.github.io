@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town06">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="154.306" y="241.078" z="0.0"/>
+      <position x="198.306" y="241.093" z="0.0"/>
+      <position x="242.306" y="241.108" z="0.0"/>
+      <position x="286.306" y="241.123" z="0.0"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="HeavyTruckSlidesAcrossLanesTown06_1" type="HeavyTruckSlidesAcrossLanesTown06">
+        <trigger_point x="154.306" y="241.078" z="0.0" yaw="0.02"/>
+        <rig_spawn_distance_m value="35.0"/>
+        <arm_distance_m value="20.0"/>
+        <rig_speed_mps value="8.5"/>
+        <commit_ttc_s value="2.25"/>
+        <slide_corridor_distance_m value="35.0"/>
+        <slide_timeout_s value="5.0"/>
+        <max_exposure_s value="14.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

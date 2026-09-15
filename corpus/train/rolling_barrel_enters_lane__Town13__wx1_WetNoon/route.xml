@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town13">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="-2862.62" y="6010.41" z="161.25"/>
+      <position x="-2882.62" y="6010.16" z="161.50"/>
+      <position x="-2902.62" y="6009.92" z="161.74"/>
+      <position x="-2922.63" y="6009.68" z="161.98"/>
+      <position x="-2942.64" y="6009.49" z="162.22"/>
+      <position x="-2962.64" y="6009.29" z="162.46"/>
+      <position x="-2982.64" y="6009.10" z="162.69"/>
+      <position x="-3002.64" y="6008.90" z="162.92"/>
+      <position x="-3022.64" y="6008.71" z="163.15"/>
+      <position x="-3042.63" y="6008.51" z="163.38"/>
+      <position x="-3062.63" y="6008.32" z="163.60"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="RollingBarrelEntersLaneTown13_1" type="RollingBarrelEntersLaneTown13">
+        <trigger_point x="-2862.62" y="6010.41" z="161.25" yaw="-179.30"/>
+        <target_spawn_distance_m value="74.0"/>
+        <pickup_spawn_distance_m value="80.0"/>
+        <arm_distance_m value="25.0"/>
+        <commit_ttc_s value="3.6"/>
+        <wheel_crossing_distance_m value="80.0"/>
+        <target_speed_mps value="9.0"/>
+        <pickup_speed_mps value="9.0"/>
+        <max_exposure_s value="12.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town06">
+    <weathers>
+      <weather route_percentage="0" cloudiness="60.0" precipitation="60.0" precipitation_deposits="60.0" wind_intensity="60.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="60.0" precipitation="60.0" precipitation_deposits="60.0" wind_intensity="60.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="150.52" y="241.08" z="0.00" />
+      <position x="157.52" y="241.08" z="0.00" />
+      <position x="164.52" y="241.08" z="0.00" />
+      <position x="171.52" y="241.08" z="0.00" />
+      <position x="178.52" y="241.09" z="0.00" />
+      <position x="185.52" y="241.09" z="0.00" />
+      <position x="192.52" y="241.09" z="0.00" />
+      <position x="199.52" y="241.09" z="0.00" />
+      <position x="206.52" y="241.10" z="0.00" />
+      <position x="213.52" y="241.10" z="0.00" />
+      <position x="220.52" y="241.10" z="0.00" />
+      <position x="227.52" y="241.10" z="0.00" />
+      <position x="234.52" y="241.11" z="0.00" />
+      <position x="241.52" y="241.11" z="0.00" />
+      <position x="248.52" y="241.11" z="0.00" />
+      <position x="255.52" y="241.11" z="0.00" />
+      <position x="262.52" y="241.12" z="0.00" />
+      <position x="269.52" y="241.12" z="0.00" />
+      <position x="276.52" y="241.12" z="0.00" />
+      <position x="283.52" y="241.12" z="0.00" />
+      <position x="290.52" y="241.12" z="0.00" />
+      <position x="297.52" y="241.13" z="0.00" />
+      <position x="304.52" y="241.13" z="0.00" />
+      <position x="311.52" y="241.13" z="0.00" />
+      <position x="318.52" y="241.13" z="0.00" />
+      <position x="325.52" y="241.14" z="0.00" />
+      <position x="332.52" y="241.14" z="0.00" />
+      <position x="339.52" y="241.14" z="0.00" />
+      <position x="346.52" y="241.14" z="0.00" />
+      <position x="353.52" y="241.15" z="0.00" />
+      <position x="360.52" y="241.15" z="0.00" />
+      <position x="367.52" y="241.15" z="0.00" />
+      <position x="374.52" y="241.15" z="0.00" />
+      <position x="381.52" y="241.16" z="0.00" />
+      <position x="388.52" y="241.16" z="0.00" />
+      <position x="395.52" y="241.16" z="0.00" />
+      <position x="402.52" y="241.16" z="0.00" />
+      <position x="409.52" y="241.17" z="0.00" />
+      <position x="416.52" y="241.17" z="0.00" />
+      <position x="423.52" y="241.17" z="0.00" />
+    </waypoints>
+    <scenarios>
+      <scenario name="LowGripAdjacentVehicleSpinBlocksLaneTown06_0" type="LowGripAdjacentVehicleSpinBlocksLaneTown06">
+        <trigger_point x="297.52" y="241.13" z="0.0" yaw="0.02" />
+        <other_parameters>
+          <activation_distance_m value="140" />
+          <adv_spawn_behind_ego value="55" />
+          <approach_speed_kmh value="104" />
+          <ahead_trigger_distance_m value="2" />
+          <ego_speed_cap_kmh value="88" />
+          <ego_cap_brake value="0.12" />
+          <road_friction_scale value="0.78" />
+          <ego_lead_vehicle_distance_m value="0" />
+          <ego_lead_vehicle_speed_kmh value="58" />
+          <cut_in_steer value="0.75" />
+          <cut_in_throttle value="0.65" />
+          <cut_in_duration value="0.70" />
+          <drift_steer value="0.80" />
+          <drift_steer_sign value="-1.0" />
+          <drift_throttle value="0.10" />
+          <drift_brake value="0.30" />
+          <drift_duration value="0.80" />
+          <spin_throttle value="0.10" />
+          <spin_duration value="1.20" />
+          <block_duration value="5.50" />
+          <aftermath_duration_s value="6.0" />
+        </other_parameters>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

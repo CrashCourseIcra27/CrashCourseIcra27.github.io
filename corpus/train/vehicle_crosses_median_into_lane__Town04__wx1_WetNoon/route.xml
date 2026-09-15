@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town04">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="-429.135" y="16.634" z="0.200"/>
+      <position x="-468.848" y="30.516" z="0.200"/>
+      <position x="-496.082" y="63.056" z="0.200"/>
+      <position x="-503.271" y="104.125" z="0.200"/>
+      <position x="-503.521" y="144.124" z="0.200"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="VehicleCrossesMedianIntoLaneTown04_1" type="VehicleCrossesMedianIntoLaneTown04">
+        <trigger_point x="-429.135" y="16.634" z="0.200" yaw="176.07"/>
+        <arm_distance_m value="14.0"/>
+        <suv_spawn_distance_m value="30.0"/>
+        <suv_gap_ahead_m value="14.0"/>
+        <suv_cross_speed_mps value="10.0"/>
+        <suv_continue_speed_mps value="4.5"/>
+        <suv_launch_timeout_s value="5.5"/>
+        <max_exposure_s value="12.0"/>
+        <suv_preroll_speed_mps value="6.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

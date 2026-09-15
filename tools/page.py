@@ -103,6 +103,9 @@ figure img.single{width:100%;border:1px solid var(--line);background:#fff;paddin
 .subcap{color:var(--muted);font-size:.78rem;text-align:center;margin-top:4px}
 .missing{padding:10px;border:1px dashed var(--line);color:var(--muted);font-size:.85rem}
 
+pre.tree{background:var(--soft);border:1px solid var(--line);border-radius:8px;
+          padding:12px 14px;overflow-x:auto;font-size:.82rem;line-height:1.5;margin:14px 0}
+
 /* ---------- tables ---------- */
 .panelhead{font-weight:650;font-size:.9rem;margin:14px 0 6px}
 .panelhead:first-of-type{margin-top:0}
@@ -192,7 +195,7 @@ HTML = """<!DOCTYPE html>
     <div class="venue">Under double-anonymous review at ICRA 2027</div>
     <div class="buttons">
       <a class="btn ghost dim" href="#">&#128196; Paper (coming soon)</a>
-      <a class="btn ghost dim" href="#">&#128187; Code (coming soon)</a>
+      <a class="btn" href="crashcourse-corpus.zip">&#128230; Benchmark corpus (1.4&#8239;MB)</a>
       <a class="btn ghost dim" href="#">&#127909; Video (coming soon)</a>
     </div>
     <figure class="teaser">
@@ -278,11 +281,47 @@ HTML = """<!DOCTYPE html>
 
 <section id="release">
   <div class="wrap">
-    <h2>Code, data and video</h2>
-    <p>The CrashCourse scenario suite and evaluation harness, the teacher training code, the
-    exported emergency demonstrations and the qualitative video are released here once the
-    runs they document are complete. Nothing is withheld pending review beyond the paper PDF
-    itself, which goes up when review concludes.</p>
+    <h2>The benchmark corpus</h2>
+    <p>All 164 evaluated scenario instances are released here:
+    <a href="crashcourse-corpus.zip">crashcourse-corpus.zip</a> (1.4&#8239;MB), or browse an
+    instance directly, for example
+    <a href="corpus/manifest.csv">manifest.csv</a> and
+    <a href="corpus/README.md">README.md</a>.</p>
+
+    <p>Each instance is one folder holding its <code>route.xml</code>, its scenario
+    implementation, and the extra behaviours it needs. Folders are self-contained and
+    duplicate shared code on purpose, so no instance depends on another and any subset can be
+    installed on its own. Every scenario class and module name is unique across the corpus,
+    which is what lets a family sited in several towns keep a per-town implementation without
+    one route silently loading a sibling town&rsquo;s version.</p>
+
+    <pre class="tree">train/&lt;scenario&gt;__&lt;Town&gt;[__variantN]__wx&lt;1|2&gt;_&lt;WeatherPreset&gt;/
+    route.xml                     route definition
+    &lt;scenario&gt;_&lt;town&gt;.py           the scenario implementation
+    custom_atomics_&lt;stem&gt;.py      extra behaviours, where required
+test/ ...
+manifest.csv                      every instance: split, town, preset, class, module</pre>
+
+    <p>The split is per route, so both weather variants of a route land on the same side:
+    82 train instances and 82 test instances. Weather is constant along a route, written into
+    <code>route.xml</code> as the exact nine parameters of the named
+    <code>carla.WeatherParameters</code> preset. In CARLA 0.9.15 route mode
+    <code>precipitation_deposits</code> and <code>wetness</code> are visual only and do not
+    change tyre grip; the instances that genuinely reduce grip do so in code, through a
+    friction trigger. Some scenarios govern the ego&rsquo;s speed so the hazard is met at a
+    repeatable closing speed, which is a property of the harness rather than of the hazard.</p>
+
+    <p>Running an instance needs CARLA 0.9.15 with ScenarioRunner and the leaderboard: copy
+    the instance&rsquo;s scenario module into <code>srunner/scenarios/</code>, copy any
+    <code>custom_atomics_*.py</code> into
+    <code>srunner/scenariomanager/scenarioatomics/</code>, and point the leaderboard at the
+    instance&rsquo;s <code>route.xml</code>. Beyond a standard install the modules import only
+    <code>carla</code>, <code>py_trees</code>, <code>numpy</code>, <code>cv2</code> and stock
+    <code>srunner</code> helpers.</p>
+
+    <p>The teacher training code, the exported demonstrations and the qualitative video follow
+    once the runs they document are complete. Nothing is withheld pending review beyond the
+    paper PDF itself, which goes up when review concludes.</p>
   </div>
 </section>
 

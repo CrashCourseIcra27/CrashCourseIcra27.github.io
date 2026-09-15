@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town03">
+    <weathers>
+      <weather route_percentage="0" cloudiness="60.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="60.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="229.66" y="80.57" z="0.08" />
+      <position x="229.46" y="88.57" z="0.16" />
+      <position x="229.27" y="96.57" z="0.27" />
+      <position x="229.07" y="104.57" z="0.40" />
+      <position x="228.88" y="112.56" z="0.56" />
+      <position x="228.69" y="120.56" z="0.72" />
+      <position x="228.49" y="128.56" z="0.88" />
+      <position x="228.30" y="136.56" z="1.05" />
+      <position x="227.88" y="143.65" z="1.21" />
+      <position x="226.56" y="150.28" z="1.37" />
+      <position x="224.32" y="156.66" z="1.54" />
+      <position x="221.21" y="162.66" z="1.70" />
+      <position x="217.29" y="168.17" z="1.87" />
+      <position x="212.63" y="173.06" z="2.03" />
+    </waypoints>
+    <scenarios>
+      <scenario name="OccludedDrivewayPulloutBlocksLaneTown03Variant3_0" type="OccludedDrivewayPulloutBlocksLaneTown03Variant3">
+        <trigger_point x="229.66" y="80.57" z="0.08" yaw="91.39" />
+        <activation_distance_m value="80" />
+        <driveway_ahead_from_trigger_m value="30" />
+        <driveway_right_offset_m value="7.5" />
+        <pull_out_speed_kmh value="20" />
+        <in_road_brake_threshold_m value="1.5" />
+        <trigger_distance_to_driveway_m value="18" />
+        <ego_speed_cap_kmh value="45" />
+        <ego_min_speed_kmh value="40" />
+        <max_run_time value="25" />
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

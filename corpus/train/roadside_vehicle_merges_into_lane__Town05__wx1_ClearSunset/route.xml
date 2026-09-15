@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town05">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="46.110" y="-146.001" z="0.039"/>
+      <position x="56.048" y="-145.989" z="0.039"/>
+      <position x="85.771" y="-143.848" z="0.039"/>
+      <position x="124.188" y="-135.410" z="0.039"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="RoadsideVehicleMergesIntoLaneTown05_1" type="RoadsideVehicleMergesIntoLaneTown05">
+        <trigger_point x="56.048" y="-145.989" z="0.039" yaw="1.084"/>
+        <actor_spawn_distance_m value="40.0"/>
+        <shoulder_offset_m value="3.6"/>
+        <arm_distance_m value="22.0"/>
+        <burnout_duration_s value="0.8"/>
+        <lurch_target_distance_m value="55.0"/>
+        <max_exposure_s value="10.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

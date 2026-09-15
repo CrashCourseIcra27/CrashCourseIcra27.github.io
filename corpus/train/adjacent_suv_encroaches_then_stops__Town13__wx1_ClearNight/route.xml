@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town13">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="9.354" y="-1148.283" z="161.0"/>
+      <position x="34.652" y="-1132.158" z="161.0"/>
+      <position x="47.3" y="-1124.1" z="161.0"/>
+      <position x="59.951" y="-1116.034" z="160.801"/>
+      <position x="85.249" y="-1099.91" z="160.342"/>
+      <position x="110.548" y="-1083.786" z="159.884"/>
+      <position x="135.846" y="-1067.662" z="159.425"/>
+      <position x="161.145" y="-1051.538" z="158.967"/>
+      <position x="178.01" y="-1040.788" z="158.661"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="AdjacentSuvEncroachesThenStopsTown13_1" type="AdjacentSuvEncroachesThenStopsTown13">
+        <trigger_point x="47.3" y="-1124.1" z="161.0" yaw="32.5"/>
+        <arm_distance_m value="10.0"/>
+        <actor_spawn_distance_m value="16.0"/>
+        <actor_speed_mps value="9.0"/>
+        <conflict_distance_m value="35.0"/>
+        <encroach_duration_s value="5.0"/>
+        <arm_ttc_s value="3.5"/>
+        <gate_speed_mps value="7.5"/>
+        <max_exposure_s value="20.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

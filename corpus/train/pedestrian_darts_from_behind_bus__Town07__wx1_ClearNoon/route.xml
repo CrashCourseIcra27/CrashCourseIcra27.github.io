@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town07">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="-201.55" y="-103.54" z="0.00" />
+      <position x="-201.56" y="-95.54" z="0.00" />
+      <position x="-201.56" y="-87.54" z="0.00" />
+      <position x="-201.56" y="-79.54" z="0.00" />
+      <position x="-201.56" y="-71.54" z="0.00" />
+      <position x="-201.57" y="-63.54" z="0.00" />
+      <position x="-201.57" y="-55.54" z="0.00" />
+      <position x="-201.59" y="-47.56" z="0.00" />
+    </waypoints>
+    <scenarios>
+      <scenario name="PedestrianDartsFromBehindBusTown07_0" type="PedestrianDartsFromBehindBusTown07">
+        <trigger_point x="-201.56" y="-95.54" z="0.00" yaw="90.02" />
+        <occluder_ahead_distance_m value="14" />
+        <dropoff_ahead_distance_m value="13" />
+        <dropoff_rear_distance_m value="4" />
+        <curb_offset_m value="2.3" />
+        <occluder_model value="vehicle.mitsubishi.fusorosa" />
+        <child_back_offset_m value="1.2" />
+        <child_front_offset_m value="1.8" />
+        <child_side_offset_m value="0.6" />
+        <child_dash_speed_mps value="5.6" />
+        <child_dash_delay_s value="99.0" />
+        <trigger_distance_to_occluder_m value="8.5" />
+        <crossing_distance_m value="7.2" />
+        <force_child_collision_target value="1" />
+        <child_collision_ahead_m value="14.0" />
+        <child_track_ego_target value="0" />
+        <ego_speed_cap_kmh value="26" />
+        <ego_cap_brake value="0.0" />
+        <ego_min_speed_kmh value="18" />
+        <ego_force_throttle value="0.38" />
+        <ego_yield_duration_s value="0.0" />
+        <ego_yield_brake value="0.0" />
+        <clear_hold_duration_s value="5.0" />
+        <max_run_time value="18" />
+        <post_event_hold_s value="5.0" />
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

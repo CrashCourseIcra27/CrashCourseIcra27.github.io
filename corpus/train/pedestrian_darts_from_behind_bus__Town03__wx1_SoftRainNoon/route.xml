@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town03">
+    <weathers>
+      <weather route_percentage="0" cloudiness="20.0" precipitation="30.0" precipitation_deposits="50.0" wind_intensity="30.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="20.0" precipitation="30.0" precipitation_deposits="50.0" wind_intensity="30.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="143.9" y="193.2" z="2.3"/>
+      <position x="133.9" y="193.2" z="2.1"/>
+      <position x="123.9" y="193.2" z="1.8"/>
+      <position x="113.9" y="193.2" z="1.6"/>
+      <position x="103.9" y="193.3" z="1.4"/>
+      <position x="93.9" y="193.3" z="1.2"/>
+      <position x="83.9" y="193.3" z="0.9"/>
+      <position x="73.9" y="193.3" z="0.7"/>
+      <position x="63.9" y="193.4" z="0.5"/>
+      <position x="53.7" y="193.4" z="0.3"/>
+      <position x="43.7" y="193.4" z="0.1"/>
+      <position x="33.7" y="193.4" z="0.0"/>
+      <position x="23.7" y="193.5" z="0.0"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="PedestrianDartsFromBehindBusTown03_0" type="PedestrianDartsFromBehindBusTown03">
+        <trigger_point x="130.9" y="193.2" z="2.0" yaw="179.9"/>
+        <occluder_ahead_distance_m value="24"/>
+        <dropoff_ahead_distance_m value="14"/>
+        <dropoff_rear_distance_m value="5"/>
+        <curb_offset_m value="4.2"/>
+        <child_back_offset_m value="1.2"/>
+        <child_front_offset_m value="5.2"/>
+        <child_side_offset_m value="2.8"/>
+        <child_dash_speed_mps value="6.2"/>
+        <child_dash_delay_s value="99"/>
+        <trigger_distance_to_occluder_m value="7"/>
+        <crossing_distance_m value="7.2"/>
+        <ego_speed_cap_kmh value="46"/>
+        <ego_cap_brake value="0.0"/>
+        <ego_min_speed_kmh value="34"/>
+        <ego_force_throttle value="0.88"/>
+        <ego_yield_duration_s value="0.0"/>
+        <ego_yield_brake value="0.0"/>
+        <clear_hold_duration_s value="5.0"/>
+        <max_run_time value="16"/>
+        <post_event_hold_s value="1.8"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

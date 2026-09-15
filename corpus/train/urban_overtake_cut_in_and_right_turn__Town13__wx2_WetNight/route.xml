@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town13">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="60.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="60.0"/>
+    </weathers>
+    <waypoints>
+      <position x="4587.32" y="2314.76" z="146.67"/>
+      <position x="4595.24" y="2314.42" z="146.59"/>
+      <position x="4603.16" y="2314.21" z="146.52"/>
+      <position x="4611.08" y="2314.12" z="146.45"/>
+      <position x="4619.02" y="2314.16" z="146.38"/>
+      <position x="4627.02" y="2314.24" z="146.32"/>
+      <position x="4635.01" y="2314.32" z="146.27"/>
+      <position x="4643.01" y="2314.41" z="146.21"/>
+      <position x="4651.01" y="2314.49" z="146.15"/>
+      <position x="4659.02" y="2314.56" z="146.10"/>
+      <position x="4667.02" y="2314.61" z="146.05"/>
+      <position x="4675.03" y="2314.62" z="146.00"/>
+      <position x="4683.03" y="2314.63" z="145.96"/>
+      <position x="4691.03" y="2314.64" z="145.91"/>
+      <position x="4699.03" y="2314.64" z="145.87"/>
+      <position x="4707.03" y="2314.65" z="145.83"/>
+      <position x="4715.03" y="2314.65" z="145.80"/>
+      <position x="4723.03" y="2314.66" z="145.77"/>
+      <position x="4731.03" y="2314.66" z="145.75"/>
+      <position x="4739.03" y="2314.67" z="145.72"/>
+      <position x="4747.03" y="2314.67" z="145.70"/>
+      <position x="4755.03" y="2314.68" z="145.68"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="UrbanOvertakeCutInAndRightTurnTown13_0" type="UrbanOvertakeCutInAndRightTurnTown13">
+        <trigger_point x="4659.02" y="2314.56" z="146.10" yaw="0.4"/>
+        <activation_distance_m value="82"/>
+        <primary_model value="vehicle.dodge.charger_2020"/>
+        <primary_side_sign value="-1.0"/>
+        <primary_spawn_ahead_m value="-24"/>
+        <primary_cruise_ahead_m value="5.0"/>
+        <primary_lateral_offset_m value="3.45"/>
+        <primary_speed_kmh value="38"/>
+        <cut_start_distance_m value="20"/>
+        <cut_forward_speed_kmh value="17"/>
+        <cut_lateral_speed_ms value="5.6"/>
+        <cut_intrusion_offset_m value="0.15"/>
+        <cut_duration_s value="0.76"/>
+        <cut_yaw_deg value="30"/>
+        <right_turn_forward_speed_kmh value="14"/>
+        <right_turn_lateral_offset_m value="5.2"/>
+        <right_turn_duration_s value="2.35"/>
+        <right_turn_yaw_deg value="88"/>
+        <post_cut_duration_s value="4.0"/>
+        <ego_speed_cap_kmh value="28"/>
+        <ego_min_speed_kmh value="13"/>
+        <ego_cap_brake value="0.08"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

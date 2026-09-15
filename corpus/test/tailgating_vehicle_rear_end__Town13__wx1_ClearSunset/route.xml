@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town13">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="-5599.0" y="5672.8" z="191.8"/>
+      <position x="-5610.9" y="5656.9" z="191.9"/>
+      <position x="-5622.3" y="5640.6" z="192.0"/>
+      <position x="-5633.4" y="5624.1" z="192.1"/>
+      <position x="-5644.0" y="5607.3" z="192.2"/>
+      <position x="-5654.2" y="5590.3" z="192.3"/>
+      <position x="-5664.0" y="5573.0" z="192.3"/>
+      <position x="-5673.3" y="5555.5" z="192.4"/>
+      <position x="-5682.2" y="5537.7" z="192.4"/>
+      <position x="-5690.6" y="5519.7" z="192.5"/>
+      <position x="-5698.5" y="5501.5" z="192.5"/>
+      <position x="-5706.0" y="5483.1" z="192.5"/>
+      <position x="-5713.0" y="5464.5" z="192.5"/>
+      <position x="-5719.6" y="5445.7" z="192.5"/>
+      <position x="-5725.6" y="5426.8" z="192.5"/>
+      <position x="-5731.2" y="5407.7" z="192.5"/>
+      <position x="-5736.3" y="5388.5" z="192.4"/>
+      <position x="-5740.9" y="5369.2" z="192.4"/>
+      <position x="-5745.0" y="5349.8" z="192.3"/>
+      <position x="-5748.6" y="5330.2" z="192.2"/>
+      <position x="-5751.7" y="5310.6" z="192.1"/>
+      <position x="-5754.4" y="5290.9" z="192.0"/>
+      <position x="-5756.5" y="5271.2" z="191.9"/>
+      <position x="-5758.1" y="5251.4" z="191.8"/>
+      <position x="-5759.2" y="5231.5" z="191.7"/>
+      <position x="-5759.8" y="5211.7" z="191.5"/>
+      <position x="-5759.9" y="5191.8" z="191.4"/>
+      <position x="-5759.6" y="5171.9" z="191.2"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="TailgatingVehicleRearEndTown13_1" type="TailgatingVehicleRearEndTown13">
+        <trigger_point x="-5599.0" y="5672.8" z="191.8" yaw="-127.4"/>
+        <spawn_gap_m value="17.0"/>
+        <gap_time_constant_s value="2.25"/>
+        <gap_bonus_floor_mps value="5.0"/>
+        <gap_bonus_ceil_mps value="17.0"/>
+        <v_cmd_ceil_mps value="30.0"/>
+        <pursuit_timeout_s value="12.0"/>
+        <max_exposure_s value="15.0"/>
+        <clear_distance_m value="60.0"/>
+        <ambient_clear_bubble_m value="530.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

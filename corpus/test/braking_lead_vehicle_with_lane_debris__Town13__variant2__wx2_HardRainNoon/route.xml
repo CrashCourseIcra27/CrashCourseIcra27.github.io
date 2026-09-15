@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town13">
+    <weathers>
+      <weather route_percentage="0" cloudiness="100.0" precipitation="100.0" precipitation_deposits="90.0" wind_intensity="100.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="7.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="100.0" precipitation="100.0" precipitation_deposits="90.0" wind_intensity="100.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="7.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="1261.890" y="1521.262" z="148.711"/>
+      <position x="1261.010" y="1571.254" z="148.691"/>
+      <position x="1260.130" y="1621.247" z="148.669"/>
+      <position x="1259.249" y="1671.239" z="148.646"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="BrakingLeadVehicleWithLaneDebrisTown13Variant2_1" type="BrakingLeadVehicleWithLaneDebrisTown13Variant2">
+        <trigger_point x="1261.890" y="1521.262" z="148.711" yaw="91.01"/>
+        <pickup_spawn_distance_m value="26.0"/>
+        <arm_distance_m value="16.0"/>
+        <pickup_speed_mps value="9.0"/>
+        <traffic_speed_mps value="10.0"/>
+        <debris_start_distance_m value="32.0"/>
+        <max_exposure_s value="12.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

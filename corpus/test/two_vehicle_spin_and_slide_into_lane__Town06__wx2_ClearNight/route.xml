@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town06">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="269.101" y="140.532" z="0.200"/>
+      <position x="309.100" y="140.696" z="0.200"/>
+      <position x="349.100" y="140.860" z="0.200"/>
+      <position x="389.100" y="141.024" z="0.200"/>
+      <position x="429.099" y="141.188" z="0.200"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="TwoVehicleSpinAndSlideIntoLaneTown06_1" type="TwoVehicleSpinAndSlideIntoLaneTown06">
+        <trigger_point x="269.101" y="140.532" z="0.200" yaw="0.23"/>
+        <arm_distance_m value="20.0"/>
+        <sedan_spawn_distance_m value="35.0"/>
+        <sedan_target_distance_m value="40.0"/>
+        <sedan_slide_timeout_s value="5.0"/>
+        <suv_arm_distance_m value="16.0"/>
+        <suv_spawn_distance_m value="70.0"/>
+        <suv_target_distance_m value="68.0"/>
+        <suv_progress_fallback_m value="50.0"/>
+        <suv_slide_timeout_s value="6.0"/>
+        <max_exposure_s value="12.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

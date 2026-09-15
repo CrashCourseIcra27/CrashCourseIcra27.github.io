@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town06">
+    <weathers>
+      <weather route_percentage="0" cloudiness="20.0" precipitation="30.0" precipitation_deposits="50.0" wind_intensity="30.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="20.0" precipitation="30.0" precipitation_deposits="50.0" wind_intensity="30.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="291.353" y="-16.998" z="0.200"/>
+      <position x="251.354" y="-16.852" z="0.200"/>
+      <position x="211.354" y="-16.707" z="0.200"/>
+      <position x="171.354" y="-16.561" z="0.200"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="AdjacentVanLateralSqueezeThenStopTown06_1" type="AdjacentVanLateralSqueezeThenStopTown06">
+        <trigger_point x="291.353" y="-16.998" z="0.200" yaw="179.79"/>
+        <pursuer_spawn_distance_m value="4.0"/>
+        <pursuer_speed_mps value="8.0"/>
+        <gate_speed_mps value="7.5"/>
+        <abeam_offset_m value="2.0"/>
+        <push_gap_ahead_m value="6.0"/>
+        <push_duration_s value="2.5"/>
+        <spin_speed_mps value="4.0"/>
+        <spin_exit_timeout_s value="4.0"/>
+        <rest_gap_ahead_m value="12.0"/>
+        <max_exposure_s value="12.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

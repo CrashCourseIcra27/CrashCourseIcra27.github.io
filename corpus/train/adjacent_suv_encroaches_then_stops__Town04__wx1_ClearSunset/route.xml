@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town04">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="334.158" y="17.513" z="0.760"/>
+      <position x="304.162" y="17.001" z="1.641"/>
+      <position x="274.167" y="16.489" z="2.932"/>
+      <position x="244.171" y="15.977" z="4.618"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="AdjacentSuvEncroachesThenStopsTown04_1" type="AdjacentSuvEncroachesThenStopsTown04">
+        <trigger_point x="334.158" y="17.513" z="0.760" yaw="-179.02"/>
+        <arm_distance_m value="12.0"/>
+        <actor_spawn_distance_m value="16.0"/>
+        <actor_speed_mps value="9.0"/>
+        <conflict_distance_m value="31.0"/>
+        <encroach_duration_s value="3.5"/>
+        <arm_ttc_s value="5.0"/>
+        <gate_speed_mps value="7.5"/>
+        <max_exposure_s value="20.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

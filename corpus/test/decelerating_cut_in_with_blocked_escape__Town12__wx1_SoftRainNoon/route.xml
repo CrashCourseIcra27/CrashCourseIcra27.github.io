@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town12">
+    <weathers>
+      <weather route_percentage="0" cloudiness="20.0" precipitation="30.0" precipitation_deposits="50.0" wind_intensity="30.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="20.0" precipitation="30.0" precipitation_deposits="50.0" wind_intensity="30.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="3569.58" y="3110.82" z="369.22" />
+      <position x="3579.58" y="3110.77" z="369.25" />
+      <position x="3589.58" y="3110.73" z="369.28" />
+      <position x="3599.58" y="3110.68" z="369.31" />
+      <position x="3609.58" y="3110.64" z="369.34" />
+      <position x="3619.58" y="3110.59" z="369.36" />
+      <position x="3629.58" y="3110.55" z="369.37" />
+      <position x="3639.58" y="3110.50" z="369.39" />
+      <position x="3649.58" y="3110.46" z="369.41" />
+      <position x="3659.58" y="3110.41" z="369.43" />
+      <position x="3669.58" y="3110.37" z="369.45" />
+      <position x="3679.58" y="3110.32" z="369.48" />
+      <position x="3689.58" y="3110.28" z="369.51" />
+      <position x="3699.58" y="3110.24" z="369.54" />
+      <position x="3709.58" y="3110.19" z="369.57" />
+      <position x="3719.58" y="3110.15" z="369.60" />
+      <position x="3729.58" y="3110.10" z="369.63" />
+      <position x="3739.58" y="3110.06" z="369.66" />
+      <position x="3749.58" y="3110.01" z="369.69" />
+      <position x="3759.50" y="3110.02" z="369.71" />
+      <position x="3769.36" y="3110.25" z="369.74" />
+    </waypoints>
+    <scenarios>
+      <scenario name="DeceleratingCutInWithBlockedEscapeTown12_0" type="DeceleratingCutInWithBlockedEscapeTown12">
+        <trigger_point x="3609.58" y="3110.64" z="369.34" yaw="-0.26" />
+        <activation_distance_m value="120" />
+        <cutter_spawn_ahead_m value="3" />
+        <cutter_cruise_speed_kmh value="70" />
+        <cutback_lateral_speed_ms value="1.5" />
+        <cutback_duration_s value="4.0" />
+        <ego_speed_cap_kmh value="80" />
+        <ego_min_speed_kmh value="65" />
+        <ego_cap_brake value="0.12" />
+        <aftermath_duration_s value="5.0" />
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

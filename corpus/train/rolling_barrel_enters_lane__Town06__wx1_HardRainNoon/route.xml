@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town06">
+    <weathers>
+      <weather route_percentage="0" cloudiness="100.0" precipitation="100.0" precipitation_deposits="90.0" wind_intensity="100.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="7.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="100.0" precipitation="100.0" precipitation_deposits="90.0" wind_intensity="100.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="7.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="465.800" y="-21.022" z="0.200"/>
+      <position x="421.700" y="-20.973" z="0.200"/>
+      <position x="375.700" y="-20.805" z="0.200"/>
+      <position x="331.700" y="-20.645" z="0.200"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="RollingBarrelEntersLaneTown06_1" type="RollingBarrelEntersLaneTown06">
+        <trigger_point x="465.800" y="-21.022" z="0.200" yaw="180.0"/>
+        <target_spawn_distance_m value="74.0"/>
+        <pickup_spawn_distance_m value="80.0"/>
+        <arm_distance_m value="25.0"/>
+        <commit_ttc_s value="3.6"/>
+        <wheel_crossing_distance_m value="80.0"/>
+        <target_speed_mps value="9.0"/>
+        <pickup_speed_mps value="9.0"/>
+        <max_exposure_s value="12.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

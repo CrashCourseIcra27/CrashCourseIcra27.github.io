@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town04">
+    <weathers>
+      <weather route_percentage="0" cloudiness="60.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="60.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="257.695" y="-367.584" z="0.0"/>
+      <position x="275.894" y="-365.461" z="0.0"/>
+      <position x="302.235" y="-357.715" z="0.0"/>
+      <position x="318.685" y="-349.649" z="0.0"/>
+      <position x="340.941" y="-333.570" z="0.0"/>
+      <position x="359.481" y="-313.320" z="0.0"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="AdjacentVehicleSwerveIntoLaneTown04Variant1_1" type="AdjacentVehicleSwerveIntoLaneTown04Variant1">
+        <trigger_point x="257.695" y="-367.584" z="0.0" yaw="2.764"/>
+        <actor_spawn_distance_m value="37.0"/>
+        <arm_distance_m value="26.0"/>
+        <arm_ttc_s value="2.4"/>
+        <actor_speed_mps value="12.0"/>
+        <weave_duration_s value="0.4"/>
+        <conflict_distance_m value="60.0"/>
+        <max_exposure_s value="14.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

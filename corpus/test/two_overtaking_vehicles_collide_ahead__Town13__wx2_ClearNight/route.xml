@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town13">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="-325.4" y="6085.9" z="155.7"/>
+      <position x="-365.3" y="6083.3" z="154.9"/>
+      <position x="-405.1" y="6080.2" z="154.2"/>
+      <position x="-444.9" y="6076.6" z="153.4"/>
+      <position x="-484.6" y="6072.5" z="152.7"/>
+      <position x="-524.2" y="6067.9" z="152.0"/>
+      <position x="-563.9" y="6062.8" z="151.3"/>
+      <position x="-603.4" y="6057.2" z="150.7"/>
+      <position x="-642.9" y="6051.1" z="150.1"/>
+      <position x="-682.3" y="6044.5" z="149.6"/>
+      <position x="-721.7" y="6037.8" z="149.0"/>
+      <position x="-761.1" y="6031.1" z="148.6"/>
+      <position x="-800.6" y="6024.5" z="148.1"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="TwoOvertakingVehiclesCollideAheadTown13_1" type="TwoOvertakingVehiclesCollideAheadTown13">
+        <trigger_point x="-325.4" y="6085.9" z="155.7" yaw="-176.62"/>
+        <cutter_left_spawn_distance_m value="26.0"/>
+        <cutter_right_spawn_distance_m value="36.0"/>
+        <approach_speed_mps value="8.0"/>
+        <gate_speed_mps value="7.5"/>
+        <overtake_lead_gap_m value="8.0"/>
+        <overtake_timeout_s value="10.0"/>
+        <overtake_speed_min_mps value="13.0"/>
+        <overtake_speed_max_mps value="22.0"/>
+        <homing_radius_m value="12.0"/>
+        <homing_timeout_s value="3.0"/>
+        <straighten_radius_m value="1.5"/>
+        <left_final_speed_mps value="5.0"/>
+        <striker_preseek_offset_m value="6.0"/>
+        <rear_quarter_long_m value="-2.2"/>
+        <rear_quarter_lat_m value="0.6"/>
+        <homing_speed_bonus_mps value="5.0"/>
+        <hands_off_s value="0.3"/>
+        <brake_ramp_s value="1.0"/>
+        <min_settle_s value="1.0"/>
+        <rest_speed_mps value="0.1"/>
+        <crash_safety_timeout_s value="16.0"/>
+        <clear_drive_distance_m value="20.0"/>
+        <max_exposure_s value="25.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

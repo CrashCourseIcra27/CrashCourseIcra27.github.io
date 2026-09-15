@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town12">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="-1704.7" y="3188.6" z="353.6"/>
+      <position x="-1677.0" y="3177.7" z="352.6"/>
+      <position x="-1667.7" y="3174.2" z="352.3"/>
+      <position x="-1649.1" y="3167.5" z="351.5"/>
+      <position x="-1611.4" y="3154.9" z="350.0"/>
+      <position x="-1582.9" y="3146.4" z="348.9"/>
+      <position x="-1554.2" y="3138.5" z="348.0"/>
+      <position x="-1525.2" y="3131.4" z="347.4"/>
+      <position x="-1486.4" y="3123.1" z="347.1"/>
+      <position x="-1457.1" y="3117.7" z="346.8"/>
+      <position x="-1427.7" y="3113.0" z="346.4"/>
+      <position x="-1398.2" y="3109.1" z="345.9"/>
+      <position x="-1358.7" y="3105.1" z="345.5"/>
+      <position x="-1329.0" y="3102.9" z="345.7"/>
+      <position x="-1299.3" y="3101.5" z="346.5"/>
+      <position x="-1269.4" y="3100.8" z="347.6"/>
+      <position x="-1239.4" y="3100.1" z="349.0"/>
+      <position x="-1199.4" y="3099.2" z="351.2"/>
+      <position x="-1169.4" y="3098.5" z="352.6"/>
+      <position x="-1139.4" y="3097.9" z="353.7"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="AdjacentSuvEncroachesThenStopsTown12_1" type="AdjacentSuvEncroachesThenStopsTown12">
+        <trigger_point x="-1667.7" y="3174.2" z="352.3" yaw="-20.3465"/>
+        <arm_distance_m value="10.0"/>
+        <actor_spawn_distance_m value="16.0"/>
+        <actor_speed_mps value="9.0"/>
+        <conflict_distance_m value="35.0"/>
+        <encroach_duration_s value="5.0"/>
+        <arm_ttc_s value="3.5"/>
+        <gate_speed_mps value="7.5"/>
+        <max_exposure_s value="20.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

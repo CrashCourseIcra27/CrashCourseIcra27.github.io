@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town04">
+    <weathers>
+      <weather route_percentage="0" cloudiness="100.0" precipitation="100.0" precipitation_deposits="90.0" wind_intensity="100.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="7.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="100.0" precipitation="100.0" precipitation_deposits="90.0" wind_intensity="100.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="7.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="63.329" y="13.340" z="10.997"/>
+      <position x="51.329" y="13.291" z="11.000"/>
+      <position x="21.329" y="13.169" z="11.000"/>
+      <position x="1.329" y="13.088" z="10.951"/>
+      <position x="-18.671" y="13.007" z="10.679"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="LaunchedBarrelCrossesLaneTown04_1" type="LaunchedBarrelCrossesLaneTown04">
+        <trigger_point x="51.329" y="13.291" z="11.000" yaw="-179.767"/>
+        <pickup_spawn_distance_m value="20.0"/>
+        <debris_distance_m value="38.0"/>
+        <arm_distance_m value="14.0"/>
+        <pickup_speed_mps value="9.5"/>
+        <impact_gap_m value="5.0"/>
+        <max_exposure_s value="12.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

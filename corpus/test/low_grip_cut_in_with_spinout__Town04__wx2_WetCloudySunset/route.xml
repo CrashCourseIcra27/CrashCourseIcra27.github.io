@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town04">
+    <weathers>
+      <weather route_percentage="0" cloudiness="60.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="60.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="100.21" y="38.02" z="10.66" />
+      <position x="110.19" y="38.19" z="10.48" />
+      <position x="120.19" y="38.36" z="10.25" />
+      <position x="130.19" y="38.54" z="9.99" />
+      <position x="140.19" y="38.71" z="9.69" />
+      <position x="150.19" y="38.88" z="9.34" />
+    </waypoints>
+    <scenarios>
+      <scenario name="LowGripCutInWithSpinoutTown04_0" type="LowGripCutInWithSpinoutTown04">
+        <trigger_point x="150.19" y="38.88" z="9.34" yaw="0.0"/>
+        <other_actor x="130.0" y="50.0" z="0.5"
+                     yaw="0.0"
+                     model="vehicle.tesla.model3"
+                     rolename="adversary"
+                     color="0,120,255"/>
+        <ambient_vehicle_count value="4"/>
+        <ambient_spawn_radius value="5.0"/>
+        <ambient_exclusion_radius value="2.0"/>
+        <ambient_alignment_max_deg value="90.0"/>
+        <road_friction_scale value="0.75"/>
+        <gap_vehicle_model value="vehicle.tesla.model3"/>
+        <ego_lead_vehicle_distance value="25.0"/>
+        <adjacent_lead_vehicle_distance value="12.0"/>
+        <gap_lane_offset_delta value="0.0"/>
+        <ego_lead_vehicle_speed_kmh value="55.0"/>
+        <adjacent_lead_vehicle_speed_kmh value="37.0"/>
+        <gap_vehicle_max_steer value="0.22"/>
+        <head_start_distance value="-11.0"/>
+        <lane_offset value="3.3"/>
+        <ego_lane_follow_gain value="0.55"/>
+        <ego_heading_gain value="1.15"/>
+        <adversary_cruise_speed_kmh value="67.0"/>
+        <adversary_cut_speed_kmh value="63.0"/>
+        <adversary_cut_steer value="0.48"/>
+        <adversary_countersteer value="-1.00"/>
+        <adversary_countersteer_speed_kmh value="63.0"/>
+        <adversary_settle_steer value="0.05"/>
+        <adversary_settle_speed_kmh value="52.0"/>
+        <recovery_steer_gain value="2.8"/>
+        <recovery_oscillation_period value="0.24"/>
+        <recovery_decay value="0.22"/>
+        <recovery_panic_window value="2.8"/>
+        <recovery_panic_multiplier value="2.2"/>
+        <recovery_floor_gain value="0.55"/>
+        <recovery_snap_gain value="0.35"/>
+        <recovery_snap_sharpness value="2.2"/>
+        <adversary_release_brake value="0.0"/>
+        <min_merge_delay value="4.0"/>
+        <merge_trigger_gap value="-0.9"/>
+        <cut_duration value="0.45"/>
+        <countersteer_duration value="0.5"/>
+        <settle_duration value="3.0"/>
+        <max_run_time value="24.0"/>
+        <post_impact_delay value="0.5"/>
+        <post_impact_hold value="5.0"/>
+        <end_on_collision value="true"/>
+        <realtime_factor value="1.0"/>
+        <recorder_path value="accident_scenario.log"/>
+        <spectator_distance value="10.0"/>
+        <spectator_lateral_offset value="0.0"/>
+        <spectator_height value="4.5"/>
+        <spectator_pitch value="-12.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

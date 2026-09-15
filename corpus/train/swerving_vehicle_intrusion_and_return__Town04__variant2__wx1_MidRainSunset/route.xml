@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town04">
+    <weathers>
+      <weather route_percentage="0" cloudiness="60.0" precipitation="60.0" precipitation_deposits="60.0" wind_intensity="60.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="60.0" precipitation="60.0" precipitation_deposits="60.0" wind_intensity="60.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="-509.626" y="268.987" z="0.200"/>
+      <position x="-500.159" y="306.203" z="0.200"/>
+      <position x="-477.300" y="342.700" z="0.200"/>
+      <position x="-440.100" y="360.700" z="0.200"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="SwervingVehicleIntrusionAndReturnTown04Variant2_1" type="SwervingVehicleIntrusionAndReturnTown04Variant2">
+        <trigger_point x="-509.626" y="268.987" z="0.200" yaw="75.7"/>
+        <sedan_spawn_distance_m value="17.0"/>
+        <semi_spawn_distance_m value="42.0"/>
+        <arm_distance_m value="14.0"/>
+        <sedan_speed_mps value="8.0"/>
+        <semi_speed_mps value="7.0"/>
+        <max_exposure_s value="12.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town13">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="15.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="-4208.345" y="-1018.039" z="164.612"/>
+      <position x="-4143.347" y="-1017.538" z="164.568"/>
+      <position x="-4078.349" y="-1017.037" z="164.475"/>
+      <position x="-4013.351" y="-1016.536" z="164.339"/>
+      <position x="-3948.353" y="-1016.035" z="164.169"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="OncomingVehicleHeadOnIntrusionTown13_1" type="OncomingVehicleHeadOnIntrusionTown13">
+        <trigger_point x="-4208.345" y="-1018.039" z="164.612" yaw="0.442"/>
+        <intruder_spawn_distance_m value="120.0"/>
+        <intruder_speed_mps value="11.0"/>
+        <arm_distance_m value="100.0"/>
+        <commit_distance_m value="45.0"/>
+        <max_pursuit_distance_m value="80.0"/>
+        <pursuit_steer_rate value="0.12"/>
+        <pursuit_steer_cap value="0.80"/>
+        <brake_engaged_distance_m value="2.0"/>
+        <brake_decel_mps2 value="6.0"/>
+        <max_exposure_s value="20.0"/>
+        <clear_distance_m value="80.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

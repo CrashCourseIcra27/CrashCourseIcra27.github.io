@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town03">
+    <weathers>
+      <weather route_percentage="0" cloudiness="20.0" precipitation="30.0" precipitation_deposits="50.0" wind_intensity="30.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="20.0" precipitation="30.0" precipitation_deposits="50.0" wind_intensity="30.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="160.8" y="112.7" z="0.4"/>
+      <position x="156.0" y="118.6" z="0.4"/>
+      <position x="151.6" y="122.3" z="0.4"/>
+      <position x="146.8" y="125.2" z="0.5"/>
+      <position x="139.6" y="128.0" z="0.4"/>
+      <position x="132.0" y="129.2" z="0.4"/>
+      <position x="124.1" y="129.3" z="0.3"/>
+      <position x="116.1" y="129.4" z="0.3"/>
+      <position x="108.1" y="129.5" z="0.2"/>
+      <position x="100.1" y="129.7" z="0.2"/>
+      <position x="92.1" y="129.8" z="0.1"/>
+      <position x="84.1" y="129.9" z="0.1"/>
+      <position x="76.1" y="130.0" z="0.0"/>
+      <position x="68.1" y="130.1" z="0.0"/>
+      <position x="60.1" y="130.2" z="0.0"/>
+      <position x="52.1" y="130.3" z="0.0"/>
+      <position x="44.1" y="130.5" z="0.0"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="CyclistTopplesIntoLaneTown03_0" type="CyclistTopplesIntoLaneTown03">
+        <trigger_point x="151.6" y="122.3" z="0.4" yaw="144.3"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

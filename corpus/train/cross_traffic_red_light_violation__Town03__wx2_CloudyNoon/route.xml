@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town03">
+    <weathers>
+      <weather route_percentage="0" cloudiness="60.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="60.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="5.5" y="-93.8" z="0.0"/>
+      <position x="5.5" y="-97.8" z="0.0"/>
+      <position x="5.6" y="-101.8" z="0.0"/>
+      <position x="5.7" y="-105.8" z="0.0"/>
+      <position x="5.8" y="-109.8" z="0.0"/>
+      <position x="5.9" y="-113.8" z="0.0"/>
+      <position x="6.0" y="-117.8" z="0.0"/>
+      <position x="6.0" y="-121.8" z="0.0"/>
+      <position x="6.0" y="-128.0" z="0.0"/>
+      <position x="6.0" y="-134.0" z="0.0"/>
+      <position x="6.0" y="-142.0" z="0.0"/>
+      <position x="6.0" y="-152.0" z="0.0"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="CrossTrafficRedLightViolationTown03_0" type="CrossTrafficRedLightViolationTown03">
+        <trigger_point x="5.5" y="-98.8" z="0.0" yaw="-88.6"/>
+        <direction value="right"/>
+        <source_distance_m value="20"/>
+        <sink_distance_m value="16"/>
+        <runner_speed_kmh value="56"/>
+        <trigger_distance_m value="13"/>
+        <sync_time_s value="2.2"/>
+        <runner_model value="vehicle.audi.tt"/>
+        <ego_speed_cap_kmh value="24"/>
+        <ego_cap_brake value="0.08"/>
+        <ego_min_speed_kmh value="15"/>
+        <ego_force_throttle value="0.62"/>
+        <hesitation_duration_s value="0.0"/>
+        <hesitation_brake value="0.0"/>
+        <runner_clear_distance_m value="10"/>
+        <max_run_time value="18"/>
+        <post_event_hold_s value="2.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

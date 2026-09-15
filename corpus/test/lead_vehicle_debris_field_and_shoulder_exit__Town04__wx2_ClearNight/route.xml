@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town04">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="-515.13" y="247.48" z="0.00"/>
+      <position x="-513.99" y="262.66" z="0.00"/>
+      <position x="-508.77" y="290.43" z="0.00"/>
+      <position x="-497.85" y="321.13" z="0.00"/>
+      <position x="-481.98" y="349.60" z="0.00"/>
+      <position x="-458.57" y="378.16" z="0.00"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="LeadVehicleDebrisFieldAndShoulderExitTown04_1" type="LeadVehicleDebrisFieldAndShoulderExitTown04">
+        <trigger_point x="-513.99" y="262.66" z="0.00" yaw="83.49"/>
+        <suv_spawn_distance_m value="50.0"/>
+        <arm_distance_m value="34.0"/>
+        <suv_speed_mps value="26.0"/>
+        <debris_start_distance_m value="50.0"/>
+        <debris_spacing_m value="2.0"/>
+        <max_exposure_s value="12.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

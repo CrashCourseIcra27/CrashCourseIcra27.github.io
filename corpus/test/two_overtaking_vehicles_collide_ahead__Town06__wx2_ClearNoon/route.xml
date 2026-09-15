@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town06">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="0.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="2.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="168.519" y="241.083" z="0.200"/>
+      <position x="208.519" y="241.097" z="0.200"/>
+      <position x="248.519" y="241.110" z="0.200"/>
+      <position x="288.519" y="241.124" z="0.200"/>
+      <position x="328.519" y="241.138" z="0.200"/>
+      <position x="368.519" y="241.151" z="0.200"/>
+      <position x="408.519" y="241.165" z="0.200"/>
+      <position x="448.519" y="241.179" z="0.200"/>
+      <position x="488.519" y="241.192" z="0.200"/>
+      <position x="528.519" y="241.206" z="0.200"/>
+      <position x="568.519" y="241.220" z="0.200"/>
+      <position x="593.519" y="241.228" z="0.200"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="TwoOvertakingVehiclesCollideAheadTown06_1" type="TwoOvertakingVehiclesCollideAheadTown06">
+        <trigger_point x="168.519" y="241.083" z="0.200" yaw="0.02"/>
+        <cutter_left_spawn_distance_m value="26.0"/>
+        <cutter_right_spawn_distance_m value="36.0"/>
+        <approach_speed_mps value="8.0"/>
+        <gate_speed_mps value="7.5"/>
+        <overtake_lead_gap_m value="8.0"/>
+        <overtake_timeout_s value="10.0"/>
+        <overtake_speed_min_mps value="13.0"/>
+        <overtake_speed_max_mps value="22.0"/>
+        <homing_radius_m value="12.0"/>
+        <homing_timeout_s value="3.0"/>
+        <straighten_radius_m value="1.5"/>
+        <left_final_speed_mps value="5.0"/>
+        <striker_preseek_offset_m value="6.0"/>
+        <rear_quarter_long_m value="-2.2"/>
+        <rear_quarter_lat_m value="0.6"/>
+        <homing_speed_bonus_mps value="5.0"/>
+        <hands_off_s value="0.3"/>
+        <brake_ramp_s value="1.0"/>
+        <min_settle_s value="1.0"/>
+        <rest_speed_mps value="0.1"/>
+        <crash_safety_timeout_s value="16.0"/>
+        <clear_drive_distance_m value="20.0"/>
+        <max_exposure_s value="25.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

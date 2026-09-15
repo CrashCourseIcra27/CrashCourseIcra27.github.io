@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town04">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="60.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="60.0"/>
+    </weathers>
+    <waypoints>
+      <position x="-135.814" y="12.765" z="8.256"/>
+      <position x="-165.814" y="12.725" z="6.701"/>
+      <position x="-195.814" y="12.684" z="5.146"/>
+      <position x="-225.814" y="12.644" z="3.596"/>
+      <position x="-255.814" y="12.604" z="2.066"/>
+      <position x="-285.814" y="12.564" z="1.065"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="LeadVehicleBrakesToFullStopTown04_1" type="LeadVehicleBrakesToFullStopTown04">
+        <trigger_point x="-135.814" y="12.765" z="8.256" yaw="-179.92"/>
+        <lead_spawn_distance_m value="30.0"/>
+        <cruise_speed_mps value="6.0"/>
+        <gap_trigger_distance_m value="20.0"/>
+        <brake_decel_mps2 value="7.0"/>
+        <max_exposure_s value="12.0"/>
+        <ego_clear_distance_m value="80.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

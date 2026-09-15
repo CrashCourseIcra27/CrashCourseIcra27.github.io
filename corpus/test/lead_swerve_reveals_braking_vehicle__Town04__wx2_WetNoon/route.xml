@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town04">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="405.61" y="-57.52"  z="-0.01" />
+      <position x="405.57" y="-63.73"  z="-0.01" />
+      <position x="405.63" y="-72.71"  z="-0.01" />
+      <position x="405.66" y="-77.90"  z="-0.01" />
+      <position x="405.74" y="-89.75"  z="-0.01" />
+      <position x="406.05" y="-100.00" z="-0.01" />
+      <position x="406.16" y="-111.06" z="-0.01" />
+      <position x="406.13" y="-120.62" z="-0.01" />
+      <position x="406.10" y="-129.87" z="-0.01" />
+      <position x="406.19" y="-142.22" z="-0.01" />
+      <position x="406.48" y="-148.30" z="-0.01" />
+      <position x="406.61" y="-155.78" z="-0.01" />
+      <position x="406.59" y="-162.51" z="-0.01" />
+      <position x="406.72" y="-166.16" z="-0.01" />
+      <position x="406.94" y="-171.03" z="-0.01" />
+      <position x="407.22" y="-177.20" z="-0.01" />
+      <position x="407.55" y="-190.57" z="-0.01" />
+      <position x="407.50" y="-200.26" z="-0.01" />
+      <position x="407.44" y="-211.26" z="-0.01" />
+      <position x="407.38" y="-221.64" z="-0.01" />
+      <position x="407.33" y="-230.80" z="-0.01" />
+      <position x="407.12" y="-240.52" z="-0.01" />
+      <position x="406.71" y="-244.31" z="-0.01" />
+      <position x="406.24" y="-248.62" z="-0.01" />
+      <position x="405.78" y="-252.85" z="-0.01" />
+    </waypoints>
+    <scenarios>
+      <scenario name="LeadSwerveRevealsBrakingVehicleTown04_0" type="LeadSwerveRevealsBrakingVehicleTown04">
+        <trigger_point x="406.05" y="-100.00" z="0.0" yaw="-87.40" />
+        <other_parameters>
+          <activation_distance_m value="130" />
+          <lead_vehicle_ahead_distance_m value="15" />
+          <hazard_vehicle_ahead_distance_m value="28" />
+          <following_vehicle_behind_distance_m value="0" />
+          <side_traffic_ahead_m value="28" />
+          <side_traffic_behind_m value="10" />
+          <lead_speed_kmh value="62" />
+          <hazard_initial_speed_kmh value="62" />
+          <hazard_stop_speed_kmh value="0" />
+          <side_traffic_speed_kmh value="66" />
+          <following_vehicle_speed_kmh value="74" />
+          <hazard_brake_start_s value="2.40" />
+          <hazard_brake_trigger_gap_m value="40" />
+          <hazard_brake_ramp_s value="0.55" />
+          <lead_swerve_delay_after_brake_s value="0.25" />
+          <lead_swerve_duration_s value="0.60" />
+          <lead_swerve_lateral_m value="4.20" />
+          <lead_swerve_speed_kmh value="64" />
+          <ego_speed_cap_kmh value="58" />
+          <ego_cap_brake value="0.05" />
+          <ego_min_speed_kmh value="48" />
+          <ego_force_throttle value="0.95" />
+          <road_friction_scale value="1.0" />
+          <max_run_time value="10.0" />
+          <post_impact_hold value="3.0" />
+        </other_parameters>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

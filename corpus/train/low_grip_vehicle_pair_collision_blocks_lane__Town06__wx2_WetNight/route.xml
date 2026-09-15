@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town06">
+    <weathers>
+      <weather route_percentage="0" cloudiness="5.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="60.0"/>
+      <weather route_percentage="100" cloudiness="5.0" precipitation="0.0" precipitation_deposits="50.0" wind_intensity="10.0" sun_azimuth_angle="-1.0" sun_altitude_angle="-90.0" fog_density="60.0" fog_distance="75.0" wetness="60.0"/>
+    </weathers>
+    <waypoints>
+      <position x="269.101" y="140.532" z="0.200"/>
+      <position x="309.100" y="140.696" z="0.200"/>
+      <position x="349.100" y="140.860" z="0.200"/>
+      <position x="389.100" y="141.024" z="0.200"/>
+      <position x="429.099" y="141.188" z="0.200"/>
+      <position x="488.599" y="141.431" z="0.200"/>
+      <position x="529.258" y="141.598" z="0.200"/>
+      <position x="565.258" y="141.745" z="0.200"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="LowGripVehiclePairCollisionBlocksLaneTown06_1" type="LowGripVehiclePairCollisionBlocksLaneTown06">
+        <trigger_point x="269.101" y="140.532" z="0.200" yaw="0.23"/>
+        <icy_left_spawn_distance_m value="155.0"/>
+        <icy_right_spawn_distance_m value="153.0"/>
+        <icy_left_target_distance_m value="164.5"/>
+        <icy_right_target_distance_m value="162.5"/>
+        <icy_cruise_speed_mps value="9.0"/>
+        <icy_slide_timeout_s value="6.5"/>
+        <arm_ttc_s value="11.0"/>
+        <conflict_distance_m value="163.5"/>
+        <arm_progress_fallback_m value="155.0"/>
+        <max_exposure_s value="20.0"/>
+        <ego_clear_distance_m value="90.0"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>

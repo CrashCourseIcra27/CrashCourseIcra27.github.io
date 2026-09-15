@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="1" town="Town03">
+    <weathers>
+      <weather route_percentage="0" cloudiness="20.0" precipitation="30.0" precipitation_deposits="50.0" wind_intensity="30.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+      <weather route_percentage="100" cloudiness="20.0" precipitation="30.0" precipitation_deposits="50.0" wind_intensity="30.0" sun_azimuth_angle="-1.0" sun_altitude_angle="45.0" fog_density="3.0" fog_distance="0.75" wetness="0.0"/>
+    </weathers>
+    <waypoints>
+      <position x="18.0"  y="134.8" z="0.0"/>
+      <position x="26.0"  y="134.5" z="0.0"/>
+      <position x="34.0"  y="134.3" z="0.0"/>
+      <position x="42.0"  y="134.0" z="0.0"/>
+      <position x="50.0"  y="133.9" z="0.0"/>
+      <position x="58.0"  y="133.8" z="0.0"/>
+      <position x="66.0"  y="133.6" z="0.0"/>
+      <position x="74.0"  y="133.5" z="0.0"/>
+      <position x="82.0"  y="133.3" z="0.0"/>
+      <position x="90.0"  y="133.2" z="0.0"/>
+      <position x="98.0"  y="133.1" z="0.0"/>
+      <position x="106.0" y="133.0" z="0.0"/>
+      <position x="114.0" y="132.9" z="0.0"/>
+      <position x="122.0" y="132.8" z="0.0"/>
+    </waypoints>
+    <scenarios>
+      <scenario name="OccludedDrivewayPulloutBlocksLaneTown03Variant1_0" type="OccludedDrivewayPulloutBlocksLaneTown03Variant1">
+        <trigger_point x="20.0" y="134.7" z="0.0" yaw="-0.8"/>
+        <activation_distance_m         value="80"/>
+        <driveway_ahead_from_trigger_m value="38"/>
+        <driveway_right_offset_m       value="9.0"/>
+        <pull_out_speed_kmh            value="28"/>
+        <in_road_brake_threshold_m     value="1.5"/>
+        <trigger_distance_to_driveway_m value="13"/>
+        <ego_speed_cap_kmh             value="40"/>
+        <ego_min_speed_kmh             value="34"/>
+        <ego_cap_brake                 value="0.12"/>
+        <max_run_time                  value="28"/>
+        <post_impact_hold              value="4.5"/>
+      </scenario>
+    </scenarios>
+  </route>
+</routes>
